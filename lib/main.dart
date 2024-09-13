@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/movies/movies_details/views/screen/movie_details.dart';
 import 'package:movies_app/movies/movies_home/views/screens/home_screen.dart';
 import 'package:movies_app/shared/app_theme.dart';
@@ -12,13 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        HomeScreen.routeName:(_)=>const HomeScreen(),
-        MoviesDetails.routeName:(_)=>const MoviesDetails()
-      },
-      themeMode:ThemeMode.dark ,
-      darkTheme: AppTheme.darkTheme,
-    );
+    return ScreenUtilInit(
+        designSize: const Size(412, 870),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp(
+            routes: {
+              HomeScreen.routeName: (_) => const HomeScreen(),
+              MoviesDetails.routeName: (_) => const MoviesDetails()
+            },
+            themeMode: ThemeMode.dark,
+            darkTheme: AppTheme.darkTheme,
+          );
+        });
   }
 }
