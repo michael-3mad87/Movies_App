@@ -19,10 +19,12 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             routes: {
               HomeScreen.routeName: (_) => const HomeScreen(),
               MoviesDetails.routeName: (_) => const MoviesDetails()
             },
+            initialRoute: HomeScreen.routeName,
             themeMode: ThemeMode.dark,
             darkTheme: AppTheme.darkTheme,
           );
