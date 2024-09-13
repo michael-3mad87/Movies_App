@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies/movies_home/views/widget/movie_poster.dart';
+import 'package:movies_app/movies_home/model/slidableMovie_model.dart';
+import 'package:movies_app/movies_home/view/widget/movie_poster.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class MovieItem extends StatelessWidget {
-  MovieItem({super.key});
-
+  MovieItem(this.slidablemovieModel, {super.key});
+  SlidablemovieModel slidablemovieModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +26,7 @@ class MovieItem extends StatelessWidget {
                   topRight: Radius.circular(15.r),
                 ),
                 child: Image.asset(
-                  'assets/images/homescreen.png',
+                  slidablemovieModel.banarImage,
                   width: MediaQuery.of(context).size.width,
                   height: 217.h,
                   fit: BoxFit.cover,
@@ -56,13 +57,13 @@ class MovieItem extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.r),
                       child: Image.asset(
-                        'assets/images/poster_image.png',
+                        slidablemovieModel.poster,
                         width: 129.w,
                         height: 199.h,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    save_button(),
+                    const SavedButton(),
                   ],
                 ),
               ),
@@ -75,7 +76,7 @@ class MovieItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Dora and the lost city of gold',
+                        slidablemovieModel.moviename,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -88,19 +89,19 @@ class MovieItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '2019',
+                            slidablemovieModel.year,
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            'PG-13',
+                            slidablemovieModel.rate,
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            '2h 7m',
+                            slidablemovieModel.duration,
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),

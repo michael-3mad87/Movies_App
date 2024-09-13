@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies/movies_details/views/screen/movie_details.dart';
-import 'package:movies_app/movies/movies_home/views/screens/home_screen.dart';
+import 'package:movies_app/movies_home/view/screens/home_screen.dart';
+import 'package:movies_app/movies_details/view/screen/movie_details.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 void main() {
