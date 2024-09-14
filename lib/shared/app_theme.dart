@@ -8,16 +8,14 @@ class AppTheme {
   static const Color gold = Color(0xffFFBB3B);
   static const Color searchColor = Color(0xff514F4F);
   static const Color unselectedColor = Color(0xffB5B4B4);
-  static  ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: primary,
-    bottomNavigationBarTheme:const BottomNavigationBarThemeData(
+  static ThemeData darkTheme = ThemeData(
+      scaffoldBackgroundColor: primary,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: gold,
         unselectedItemColor: unselectedColor,
         type: BottomNavigationBarType.fixed,
-         showSelectedLabels: true,
+        showSelectedLabels: true,
         showUnselectedLabels: true,
         backgroundColor: bottomNavColor,
-    )
-  );
-  
+      ));
 }

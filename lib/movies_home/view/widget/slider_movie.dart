@@ -40,7 +40,7 @@ class SliderMovie extends StatelessWidget {
         return MovieItem(movies[index]);
       },
       options: CarouselOptions(
-        height: 330.h,
+        height: 315.h,
         autoPlay: true,
         viewportFraction: 1.0,
         enlargeCenterPage: true,

@@ -10,7 +10,7 @@ class PosterWidget extends StatelessWidget {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(4.r),
           child: Image.asset(
             image,
             width: 110.w,
