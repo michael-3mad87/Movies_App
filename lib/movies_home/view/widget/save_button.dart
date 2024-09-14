@@ -15,17 +15,16 @@ class SavedButton extends StatelessWidget {
             children: [
               Icon(
                 Icons.bookmark,
-                color: Colors.grey.withOpacity(0.8),
-                size: 32,
+                color: Colors.grey.withOpacity(0.9),
+                size: 40,
               ),
               Icon(
                 Icons.add,
                 color: AppTheme.white,
-                size: 20,
+                size: 24,
               ),
             ],
           ),
-          
         ],
       ),
     );

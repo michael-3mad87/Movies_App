@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/movies_home/model/slidableMovie_model.dart';
-import 'package:movies_app/movies_home/view/widget/movie_poster.dart';
+import 'package:movies_app/movies_home/view/widget/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class MovieItem extends StatelessWidget {
