@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies_home/model/slidableMovie_model.dart';
-import 'package:movies_app/movies_home/view/widget/save_button.dart';
+import 'package:movies_app/constant/api_constant.dart';
+import 'package:movies_app/movies/movies_home/data/models/movies.dart';
+import 'package:movies_app/shared/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
-class MovieItem extends StatelessWidget {
-  MovieItem(this.slidablemovieModel, {super.key});
-  SlidablemovieModel slidablemovieModel;
+class SliderItem extends StatelessWidget {
+  const SliderItem(this.slidableMovieModel, {super.key});
+  final Movies slidableMovieModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +27,7 @@ class MovieItem extends StatelessWidget {
                   topRight: Radius.circular(15.r),
                 ),
                 child: Image.asset(
-                  slidablemovieModel.banarImage,
+                 '${ApiConstant.imageUrl}${slidableMovieModel.backdropPath}',
                   width: MediaQuery.of(context).size.width,
                   height: 217.h,
                   fit: BoxFit.cover,
@@ -57,13 +58,17 @@ class MovieItem extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.r),
                       child: Image.asset(
-                        slidablemovieModel.poster,
+                         '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
                         width: 129.w,
                         height: 199.h,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SavedButton(),
+                    Positioned(
+                      top: -8.h,
+                      left: -10.w,
+                      child: const SavedButton(),
+                    ),
                   ],
                 ),
               ),
@@ -76,7 +81,7 @@ class MovieItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        slidablemovieModel.moviename,
+                        slidableMovieModel.originalTitle??'',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -89,19 +94,19 @@ class MovieItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            slidablemovieModel.year,
+                            slidableMovieModel.releaseDate ??'',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            slidablemovieModel.rate,
+                            '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            slidablemovieModel.duration,
+                           '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),

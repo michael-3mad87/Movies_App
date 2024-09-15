@@ -1,15 +1,15 @@
-class SlidablemovieModel {
-  final String banarImage;
+class SlidableMovieModel {
+  final String bannerImage;
   final String poster;
-  final String moviename;
+  final String movieName;
   final String year;
   final String rate;
   final String duration;
 
-  SlidablemovieModel(
-      {required this.banarImage,
+  SlidableMovieModel(
+      {required this.bannerImage,
       required this.poster,
-      required this.moviename,
+      required this.movieName,
       required this.year,
       required this.rate,
       required this.duration});
