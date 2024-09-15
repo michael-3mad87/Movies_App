@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies_home/view/widget/save_button.dart';
+import 'package:movies_app/shared/save_button.dart';
 
 class PosterWidget extends StatelessWidget {
   PosterWidget(this.image, {super.key});
@@ -18,7 +18,11 @@ class PosterWidget extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        const SavedButton(),
+        Positioned(
+          top: -8.h,
+          left: -10.w,
+          child: const SavedButton(),
+        ),
       ],
     );
   }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies_home/model/slidableMovie_model.dart';
-import 'package:movies_app/movies_home/view/widget/save_button.dart';
+import 'package:movies_app/constant/api_constant.dart';
+import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
+import 'package:movies_app/shared/loading_state.dart';
+import 'package:movies_app/shared/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-class MovieItem extends StatelessWidget {
-  MovieItem(this.slidablemovieModel, {super.key});
-  SlidablemovieModel slidablemovieModel;
+class SliderItem extends StatelessWidget {
+  const SliderItem(this.slidableMovieModel, {super.key});
+  final Movies slidableMovieModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +28,9 @@ class MovieItem extends StatelessWidget {
                   topLeft: Radius.circular(15.r),
                   topRight: Radius.circular(15.r),
                 ),
-                child: Image.asset(
-                  slidablemovieModel.banarImage,
+                child:CachedNetworkImage(
+                  imageUrl: '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                   placeholder: (_, __) =>const LoadingState(),
                   width: MediaQuery.of(context).size.width,
                   height: 217.h,
                   fit: BoxFit.cover,
@@ -37,7 +41,7 @@ class MovieItem extends StatelessWidget {
                   child: Container(
                     width: 60.w,
                     height: 60.w,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       color: AppTheme.white,
                       shape: BoxShape.circle,
                     ),
@@ -56,14 +60,20 @@ class MovieItem extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.r),
-                      child: Image.asset(
-                        slidablemovieModel.poster,
+                      child: CachedNetworkImage(
+                        imageUrl:
+                            '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                        placeholder: (_, __) =>const LoadingState(),
                         width: 129.w,
                         height: 199.h,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SavedButton(),
+                    Positioned(
+                      top: -8.h,
+                      left: -10.w,
+                      child: const SavedButton(),
+                    ),
                   ],
                 ),
               ),
@@ -76,7 +86,7 @@ class MovieItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        slidablemovieModel.moviename,
+                        slidableMovieModel.originalTitle ?? '',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -89,19 +99,19 @@ class MovieItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            slidablemovieModel.year,
+                            slidableMovieModel.releaseDate ?? '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            slidablemovieModel.rate,
+                            '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            slidablemovieModel.duration,
+                            '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
