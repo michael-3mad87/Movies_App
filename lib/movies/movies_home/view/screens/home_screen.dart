@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/new_realse/widgets/releases_movie_list.dart';
@@ -15,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [];
   int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,19 +25,34 @@ class _HomeScreenState extends State<HomeScreen> {
           index = value;
           setState(() {});
         },
-        items:const [
+        items: const [
           BottomNavigationBarItem(
-              label: 'Home', icon: ImageIcon(AssetImage('assets/icons/Home.png')),),
+            label: 'Home',
+            icon: ImageIcon(
+              AssetImage('assets/icons/homeIcon.png'),
+            ),
+          ),
           BottomNavigationBarItem(
-              label: 'Search', icon: ImageIcon(AssetImage('assets/icons/search.png')),),
+            label: 'Search',
+            icon: ImageIcon(
+              AssetImage('assets/icons/search.png'),
+            ),
+          ),
           BottomNavigationBarItem(
-              label: 'Browse', icon: ImageIcon(AssetImage('assets/icons/browse.png')),),
+            label: 'Browse',
+            icon: ImageIcon(
+              AssetImage('assets/icons/browse.png'),
+            ),
+          ),
           BottomNavigationBarItem(
-              label: 'WatchList',
-              icon:ImageIcon(AssetImage('assets/icons/watchList.png')),),
+            label: 'WatchList',
+            icon: ImageIcon(
+              AssetImage('assets/icons/watchList.png'),
+            ),
+          ),
         ],
       ),
-      body:const SafeArea(
+      body: const SafeArea(
         child: Column(
           children: [
             SliderMovie(),
