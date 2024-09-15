@@ -4,7 +4,6 @@ import 'package:movies_app/movies/movies_home/view/screens/home_screen.dart';
 import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
-
 void main() {
   runApp(
     const MyApp(),

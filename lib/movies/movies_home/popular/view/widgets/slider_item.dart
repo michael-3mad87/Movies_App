@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
-import 'package:movies_app/movies/movies_home/data/models/movies.dart';
+import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
+import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class SliderItem extends StatelessWidget {
   const SliderItem(this.slidableMovieModel, {super.key});
@@ -26,8 +28,9 @@ class SliderItem extends StatelessWidget {
                   topLeft: Radius.circular(15.r),
                   topRight: Radius.circular(15.r),
                 ),
-                child: Image.asset(
-                 '${ApiConstant.imageUrl}${slidableMovieModel.backdropPath}',
+                child:CachedNetworkImage(
+                  imageUrl: '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                   placeholder: (_, __) =>const LoadingState(),
                   width: MediaQuery.of(context).size.width,
                   height: 217.h,
                   fit: BoxFit.cover,
@@ -38,7 +41,7 @@ class SliderItem extends StatelessWidget {
                   child: Container(
                     width: 60.w,
                     height: 60.w,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       color: AppTheme.white,
                       shape: BoxShape.circle,
                     ),
@@ -57,8 +60,10 @@ class SliderItem extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.r),
-                      child: Image.asset(
-                         '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                      child: CachedNetworkImage(
+                        imageUrl:
+                            '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                        placeholder: (_, __) =>const LoadingState(),
                         width: 129.w,
                         height: 199.h,
                         fit: BoxFit.cover,
@@ -81,7 +86,7 @@ class SliderItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        slidableMovieModel.originalTitle??'',
+                        slidableMovieModel.originalTitle ?? '',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -94,7 +99,7 @@ class SliderItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            slidableMovieModel.releaseDate ??'',
+                            slidableMovieModel.releaseDate ?? '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
@@ -106,7 +111,7 @@ class SliderItem extends StatelessWidget {
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                           '',
+                            '',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),

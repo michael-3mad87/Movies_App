@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/new_releases_movies/view/widgets/releases_movie_item.dart';
+import 'package:movies_app/movies/movies_home/new_realse/widgets/releases_movie_item.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class ReleasesMovieList extends StatelessWidget {

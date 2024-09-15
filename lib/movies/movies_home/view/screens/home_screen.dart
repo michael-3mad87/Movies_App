@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_home/view/widget/icon_navbar.dart';
-import 'package:movies_app/movies/movies_home/view/widget/slider_movie.dart';
-import 'package:movies_app/new_releases_movies/view/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
+import 'package:movies_app/movies/movies_home/new_realse/widgets/releases_movie_list.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,19 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
           index = value;
           setState(() {});
         },
-        items: [
+        items:const [
           BottomNavigationBarItem(
-              label: 'Home', icon: IconNavbar('assets/icons/Home icon.png')),
+              label: 'Home', icon: ImageIcon(AssetImage('assets/icons/Home.png')),),
           BottomNavigationBarItem(
-              label: 'Search', icon: IconNavbar('assets/icons/search.png')),
+              label: 'Search', icon: ImageIcon(AssetImage('assets/icons/search.png')),),
           BottomNavigationBarItem(
-              label: 'Browse', icon: IconNavbar('assets/icons/browse.png')),
+              label: 'Browse', icon: ImageIcon(AssetImage('assets/icons/browse.png')),),
           BottomNavigationBarItem(
-              label: 'Watchlist',
-              icon: IconNavbar('assets/icons/watchlist.png')),
+              label: 'WatchList',
+              icon:ImageIcon(AssetImage('assets/icons/watchList.png')),),
         ],
       ),
-      body: SafeArea(
+      body:const SafeArea(
         child: Column(
           children: [
             SliderMovie(),
