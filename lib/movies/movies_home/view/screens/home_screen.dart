@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
-import 'package:movies_app/movies/movies_home/new_realse/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/newRealse_movies/view/widgets/releases_movie_list.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             label: 'WatchList',
             icon: ImageIcon(
-              AssetImage('assets/icons/watchList.png'),
+              AssetImage('assets/icons/watchlist.png'),
             ),
           ),
         ],

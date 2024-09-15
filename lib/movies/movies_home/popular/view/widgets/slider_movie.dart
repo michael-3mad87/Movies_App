@@ -37,7 +37,6 @@ class _SliderMovieState extends State<SliderMovie> {
               },
               options: CarouselOptions(
                 height: 315.h,
-                autoPlay: false,
                 viewportFraction: 1.0,
                 enlargeCenterPage: true,
                 disableCenter: true,
