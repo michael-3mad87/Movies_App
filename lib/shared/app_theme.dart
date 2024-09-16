@@ -9,6 +9,7 @@ class AppTheme {
   static const Color bookMarkColor = Color(0xffF7B539);
   static const Color unselectedColor = Color(0xffB5B4B4);
   static const Color darkGrey = Color(0xff514F4F);
+  static const Color movieListColor = Color(0xff343534);
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: primary,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -18,5 +19,7 @@ class AppTheme {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         backgroundColor: bottomNavColor,
+
       ));
+
 }

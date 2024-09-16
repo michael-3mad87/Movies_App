@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/newRealse_movies/view/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
+import 'package:movies_app/movies/movies_search/view/search_tab.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,8 +14,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> screens = [];
   int index = 0;
+
+  List<Widget> screens = [
+    Column(
+      children: const [
+        SliderMovie(),
+        ReleasesMovieList(),
+        SizedBox(height: 12),
+        RecommendedmoviesList(),
+      ],
+    ),
+    const SearchTab(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
-          index = value;
-          setState(() {});
+          setState(() {
+            index = value;
+          });
         },
         items: const [
           BottomNavigationBarItem(
@@ -52,13 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: const SafeArea(
-        child: Column(
-          children: [
-            SliderMovie(),
-            ReleasesMovieList(),
-          ],
-        ),
+      body: SafeArea(
+        child: screens[index],
       ),
     );
   }

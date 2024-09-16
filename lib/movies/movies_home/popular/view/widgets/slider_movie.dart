@@ -36,7 +36,7 @@ class _SliderMovieState extends State<SliderMovie> {
                 return SliderItem(popularViewModel.popularMovies[index]);
               },
               options: CarouselOptions(
-                height: 315.h,
+                height: 275.h,
                 viewportFraction: 1.0,
                 enlargeCenterPage: true,
                 disableCenter: true,

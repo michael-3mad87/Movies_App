@@ -16,19 +16,19 @@ class ReleasesMovieList extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          padding: EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(8.0),
           color: AppTheme.grey,
-          height: 230.h,
+          height: 190.h,
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'New Releases',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               const SizedBox(
-                height: 12,
+                height: 8,
               ),
               Expanded(
                 child: ChangeNotifierProvider(
