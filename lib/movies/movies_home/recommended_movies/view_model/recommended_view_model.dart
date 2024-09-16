@@ -4,28 +4,28 @@ import 'package:movies_app/movies/movies_home/recommended_movies/data/model/reco
 
 class RecommendedViewModel extends ChangeNotifier {
   RecommendedViewModel() {
-    getRecommendedmovies();
+    getRecommendedMovies();
   }
 
-  final datasource = RecommendedDatasource();
-  bool isloading = false;
-  String? errormessage;
-  List<recommended_movies> recommend_movies = [];
+  final dataSource = RecommendedDataSource();
+  bool isLoading = false;
+  String? errorMessage;
+  List<RecommendedMovies> recommendMovies = [];
 
-  Future<void> getRecommendedmovies() async {
-    isloading = true;
+  Future<void> getRecommendedMovies() async {
+    isLoading = true;
     notifyListeners();
     try {
-      final response = await datasource.getRecommendedmovies();
+      final response = await dataSource.getRecommendedMovies();
       if (response.results!.isNotEmpty && response.results != null) {
-        recommend_movies = response.results!;
+        recommendMovies = response.results!;
       } else {
-        errormessage = 'Failed to get movies';
+        errorMessage = 'Failed to get movies';
       }
     } catch (error) {
-      errormessage = error.toString();
+      errorMessage = error.toString();
     }
-    isloading = false;
+    isLoading = false;
     notifyListeners();
   }
 }

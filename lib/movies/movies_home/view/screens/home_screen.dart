@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
-import 'package:movies_app/movies/movies_home/newRealse_movies/view/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widgets/releases_movie_list.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,20 +49,23 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             label: 'WatchList',
             icon: ImageIcon(
-              AssetImage('assets/icons/watchlist.png'),
+              AssetImage('assets/icons/watch.png'),
             ),
           ),
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           children: [
-            SliderMovie(),
-            ReleasesMovieList(),
+           const SliderMovie(),
             SizedBox(
-              height: 12,
+              height: 10.h,
             ),
-            RecommendedmoviesList()
+           const ReleasesMovieList(),
+            SizedBox(
+              height: 15.h,
+            ),
+           const RecommendedMoviesList()
           ],
         ),
       ),

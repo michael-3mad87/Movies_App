@@ -5,7 +5,7 @@ import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 class PopularModelView extends ChangeNotifier {
   final dataSource = PopularMoviesDataSource();
   bool isLoading = false;
-  List<Movies> popularMovies = [];
+  List<MoviesPopular> popularMovies = [];
   String? errorMessage;
 
   PopularModelView() {

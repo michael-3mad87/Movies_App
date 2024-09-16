@@ -1,4 +1,4 @@
-class newRealse_movie {
+class NewReleasesMovie {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
@@ -14,7 +14,7 @@ class newRealse_movie {
   double? voteAverage;
   int? voteCount;
 
-  newRealse_movie(
+  NewReleasesMovie(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -30,7 +30,7 @@ class newRealse_movie {
       this.voteAverage,
       this.voteCount});
 
-  newRealse_movie.fromJson(Map<String, dynamic> json) {
+  NewReleasesMovie.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();

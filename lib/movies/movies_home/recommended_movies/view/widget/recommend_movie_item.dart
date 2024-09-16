@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
@@ -8,13 +7,13 @@ import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
 class RecommendMovieItem extends StatelessWidget {
-  RecommendMovieItem(this.recommendMovie, {super.key});
-  recommended_movies recommendMovie;
+  const RecommendMovieItem(this.recommendMovie, {super.key});
+  final RecommendedMovies recommendMovie;
 
   @override
   Widget build(BuildContext context) {
     String year =
-        constantsfunction.formatingdate(recommendMovie.releaseDate ?? '');
+        ConstantsFunction.formattingDate(recommendMovie.releaseDate ?? '');
     return Column(
       children: [
         PosterWidget(
@@ -63,23 +62,9 @@ class RecommendMovieItem extends StatelessWidget {
               const SizedBox(
                 height: 3,
               ),
-              Row(
-                children: [
-                  Text(
-                    year,
-                    style: TextStyle(color: Colors.grey, fontSize: 7.sp),
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    'PG-13',
-                    style: TextStyle(color: Colors.grey, fontSize: 7.sp),
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    '2h17m',
-                    style: TextStyle(color: Colors.grey, fontSize: 7.sp),
-                  ),
-                ],
+              Text(
+                year,
+                style: TextStyle(color: Colors.grey, fontSize: 9.sp , ),
               ),
             ],
           ),

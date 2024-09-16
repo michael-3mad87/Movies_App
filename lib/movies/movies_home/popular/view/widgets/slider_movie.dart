@@ -48,21 +48,5 @@ class _SliderMovieState extends State<SliderMovie> {
         },
       ),
     );
-
-    // CarouselSlider.builder(
-    //   itemCount: 3,
-    //   itemBuilder: (context, index, realIdx) {
-    //     return SliderItem();
-    //   },
-    //   options: CarouselOptions(
-    //     height: 315.h,
-    //     autoPlay: false,
-    //     viewportFraction: 1.0,
-    //     enlargeCenterPage: true,
-    //     disableCenter: true,
-    //     aspectRatio: 16 / 9,
-    //     autoPlayAnimationDuration: const Duration(milliseconds: 600),
-    //   ),
-    // );
   }
 }

@@ -10,11 +10,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class SliderItem extends StatelessWidget {
   const SliderItem(this.slidableMovieModel, {super.key});
-  final Movies slidableMovieModel;
+  final MoviesPopular slidableMovieModel;
   @override
   Widget build(BuildContext context) {
     String year =
-        constantsfunction.formatingdate(slidableMovieModel.releaseDate ?? '');
+        ConstantsFunction.formattingDate(slidableMovieModel.releaseDate ?? '');
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -108,17 +108,17 @@ class SliderItem extends StatelessWidget {
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
+                          const Icon(
+                            Icons.star_outlined,
+                            size: 14,
+                            color: AppTheme.gold,
+                          ),
                           Text(
                             ' ${slidableMovieModel.voteAverage}',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
-                          Text(
-                            '',
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 14.sp),
-                          ),
                         ],
                       ),
                     ],

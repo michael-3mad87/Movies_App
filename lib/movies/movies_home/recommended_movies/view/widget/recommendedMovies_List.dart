@@ -7,8 +7,8 @@ import 'package:movies_app/shared/error_state.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:provider/provider.dart';
 
-class RecommendedmoviesList extends StatelessWidget {
-  const RecommendedmoviesList({super.key});
+class RecommendedMoviesList extends StatelessWidget {
+  const RecommendedMoviesList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class RecommendedmoviesList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Recomended',
+                  'Recommended',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 const SizedBox(
@@ -34,15 +34,15 @@ class RecommendedmoviesList extends StatelessWidget {
                 Expanded(
                   child: Consumer<RecommendedViewModel>(
                     builder: (_, viewModel, __) {
-                      if (viewModel.isloading) {
-                        return LoadingState();
-                      } else if (viewModel.errormessage != null) {
-                        return ErrorState();
+                      if (viewModel.isLoading) {
+                        return const LoadingState();
+                      } else if (viewModel.errorMessage != null) {
+                        return const ErrorState();
                       } else {
                         return ListView.separated(
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) => RecommendMovieItem(
-                                viewModel.recommend_movies[index]),
+                                viewModel.recommendMovies[index]),
                             separatorBuilder: (context, index) =>
                                 const SizedBox(
                                   width: 8,
