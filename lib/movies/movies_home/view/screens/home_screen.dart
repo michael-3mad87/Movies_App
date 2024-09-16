@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/newRealse_movies/view/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
 import 'package:movies_app/shared/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,6 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             SliderMovie(),
             ReleasesMovieList(),
+            SizedBox(
+              height: 12,
+            ),
+            RecommendedmoviesList()
           ],
         ),
       ),

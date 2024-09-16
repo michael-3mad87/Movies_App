@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
+import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/save_button.dart';
@@ -12,6 +13,8 @@ class SliderItem extends StatelessWidget {
   final Movies slidableMovieModel;
   @override
   Widget build(BuildContext context) {
+    String year =
+        constantsfunction.formatingdate(slidableMovieModel.releaseDate ?? '');
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -28,11 +31,12 @@ class SliderItem extends StatelessWidget {
                   topLeft: Radius.circular(15.r),
                   topRight: Radius.circular(15.r),
                 ),
-                child:CachedNetworkImage(
-                  imageUrl: '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
-                   placeholder: (_, __) =>const LoadingState(),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                  placeholder: (_, __) => const LoadingState(),
                   width: MediaQuery.of(context).size.width,
-                  height: 217.h,
+                  height: 210.h,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -41,7 +45,7 @@ class SliderItem extends StatelessWidget {
                   child: Container(
                     width: 60.w,
                     height: 60.w,
-                    decoration:const BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: AppTheme.white,
                       shape: BoxShape.circle,
                     ),
@@ -63,9 +67,9 @@ class SliderItem extends StatelessWidget {
                       child: CachedNetworkImage(
                         imageUrl:
                             '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
-                        placeholder: (_, __) =>const LoadingState(),
+                        placeholder: (_, __) => const LoadingState(),
                         width: 129.w,
-                        height: 199.h,
+                        height: 190.h,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -99,13 +103,13 @@ class SliderItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            slidableMovieModel.releaseDate ?? '',
+                            year,
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            '',
+                            ' ${slidableMovieModel.voteAverage}',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),

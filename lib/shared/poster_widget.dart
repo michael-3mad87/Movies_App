@@ -6,8 +6,9 @@ import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/save_button.dart';
 
 class PosterWidget extends StatelessWidget {
-  PosterWidget(this.image, {super.key});
+  PosterWidget(this.image, {this.height = 170, super.key});
   final String image;
+  final int height;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,8 +17,8 @@ class PosterWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
           child: CachedNetworkImage(
             imageUrl: image,
-            width: 100.w,
-            height: 160.h,
+            width: 110.w,
+            height: height.h,
             fit: BoxFit.cover,
             placeholder: (context, url) => LoadingState(),
             errorWidget: (context, url, error) => Icon(
