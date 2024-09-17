@@ -16,9 +16,10 @@ class RecommendMovieItem extends StatelessWidget {
         ConstantsFunction.formattingDate(recommendMovie.releaseDate ?? '');
     return Column(
       children: [
-        PosterWidget(
+        PosterWidget( image: 
           '${ApiConstant.imageUrl}${recommendMovie.posterPath}',
-          height: 145,
+          height: 145, movie: recommendMovie,
+          
         ),
         Container(
           decoration: BoxDecoration(
@@ -64,7 +65,10 @@ class RecommendMovieItem extends StatelessWidget {
               ),
               Text(
                 year,
-                style: TextStyle(color: Colors.grey, fontSize: 9.sp , ),
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 9.sp,
+                ),
               ),
             ],
           ),

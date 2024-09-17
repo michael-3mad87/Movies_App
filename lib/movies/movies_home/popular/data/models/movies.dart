@@ -1,14 +1,19 @@
-class MoviesPopular {
+import 'package:movies_app/constant/movie_interface.dart';
+
+class MoviesPopular implements MovieInterface {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
+  @override
   int? id;
   String? originalLanguage;
   String? originalTitle;
   String? overview;
   double? popularity;
   String? posterPath;
+
   String? releaseDate;
+
   String? title;
   bool? video;
   double? voteAverage;

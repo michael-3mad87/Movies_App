@@ -4,10 +4,13 @@ import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models
 import 'package:movies_app/shared/poster_widget.dart';
 
 class ReleasesMovieItem extends StatelessWidget {
- const ReleasesMovieItem(this.movie, {super.key});
- final NewReleasesMovie movie;
+  const ReleasesMovieItem(this.newReleasesMovie, {super.key});
+  final NewReleasesMovie newReleasesMovie;
   @override
   Widget build(BuildContext context) {
-    return PosterWidget('${ApiConstant.imageUrl}${movie.posterPath}');
+    return PosterWidget(image: 
+      '${ApiConstant.imageUrl}${newReleasesMovie.posterPath}',
+      movie:newReleasesMovie,
+    );
   }
 }

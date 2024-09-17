@@ -10,6 +10,9 @@ class AppTheme {
   static const Color unselectedColor = Color(0xffB5B4B4);
   static const Color darkGrey = Color(0xff514F4F);
   static const Color movieListColor = Color(0xff343534);
+  static const Color appBarColor = Color(0xff1D1E1D);
+  static const Color borderColor = Color(0xff514F4F);
+  static const Color textGenreColor = Color(0xffCBCBCB);
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: primary,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -19,5 +22,12 @@ class AppTheme {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         backgroundColor: bottomNavColor,
-      ));
+      ),
+      appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          backgroundColor: appBarColor,
+          iconTheme: IconThemeData(color: white)),
+      textTheme: const TextTheme(
+          titleMedium: TextStyle(
+              color: white, fontSize: 20, fontWeight: FontWeight.w400)));
 }

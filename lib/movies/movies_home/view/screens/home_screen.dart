@@ -57,15 +57,15 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-           const SliderMovie(),
+            const SliderMovie(),
             SizedBox(
               height: 10.h,
             ),
-           const ReleasesMovieList(),
+            const ReleasesMovieList(),
             SizedBox(
               height: 15.h,
             ),
-           const RecommendedMoviesList()
+            const RecommendedMoviesList()
           ],
         ),
       ),

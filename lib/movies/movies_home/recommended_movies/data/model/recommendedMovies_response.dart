@@ -14,7 +14,7 @@ class RecommendedMoviesResponse {
     if (json['results'] != null) {
       results = <RecommendedMovies>[];
       json['results'].forEach((v) {
-        results!.add( RecommendedMovies.fromJson(v));
+        results!.add(RecommendedMovies.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

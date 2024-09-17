@@ -15,7 +15,7 @@ class ReleasesMovieList extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          padding:const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           color: AppTheme.grey,
           height: 190.h,
           width: double.infinity,
