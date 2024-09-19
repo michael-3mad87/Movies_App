@@ -28,7 +28,9 @@ class SliderItem extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: [
-             BackgroundStack(image: '${ApiConstant.imageUrl}${slidableMovieModel.backdropPath}'),
+              BackgroundStack(
+                  image:
+                      '${ApiConstant.imageUrl}${slidableMovieModel.backdropPath}'),
               Positioned(
                 left: 20.w,
                 bottom: -50.h,
@@ -39,7 +41,7 @@ class SliderItem extends StatelessWidget {
                         Navigator.pushNamed(
                           context,
                           MoviesDetails.routeName,
-                          arguments: slidableMovieModel,
+                          arguments: slidableMovieModel.id,
                         );
                       },
                       child: ClipRRect(
@@ -88,18 +90,18 @@ class SliderItem extends StatelessWidget {
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
-                          SizedBox(width: 8.w),
+                          SizedBox(width: 14.w),
                           const Icon(
                             Icons.star_outlined,
                             size: 14,
                             color: AppTheme.gold,
                           ),
                           Text(
-                            ' ${slidableMovieModel.voteAverage}',
+                            ' ${slidableMovieModel.voteAverage!.toStringAsFixed(1)}',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
-                          SizedBox(width: 8.w),
+                          
                         ],
                       ),
                     ],

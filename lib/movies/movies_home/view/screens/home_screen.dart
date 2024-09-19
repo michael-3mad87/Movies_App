@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const ReleasesMovieList(),
             SizedBox(
-              height: 15.h,
+              height: 10.h,
             ),
             const RecommendedMoviesList()
           ],

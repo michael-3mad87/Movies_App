@@ -39,6 +39,7 @@ class _SliderMovieState extends State<SliderMovie> {
                 height: 275.h,
                 viewportFraction: 1.0,
                 enlargeCenterPage: true,
+                autoPlay: true,
                 disableCenter: true,
                 aspectRatio: 16 / 9,
                 autoPlayAnimationDuration: const Duration(milliseconds: 600),

@@ -1,26 +1,21 @@
-class RecommendedMovies {
+
+class moreLikeMovies {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
-  @override
   int? id;
   String? originalLanguage;
   String? originalTitle;
-
   String? overview;
   double? popularity;
-
   String? posterPath;
-
   String? releaseDate;
-
   String? title;
   bool? video;
-
   double? voteAverage;
   int? voteCount;
 
-  RecommendedMovies(
+  moreLikeMovies(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -36,7 +31,7 @@ class RecommendedMovies {
       this.voteAverage,
       this.voteCount});
 
-  RecommendedMovies.fromJson(Map<String, dynamic> json) {
+  moreLikeMovies.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();

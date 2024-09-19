@@ -1,6 +1,4 @@
-import 'package:movies_app/constant/movie_interface.dart';
-
-class MoviesPopular implements MovieInterface {
+class MoviesPopular {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;

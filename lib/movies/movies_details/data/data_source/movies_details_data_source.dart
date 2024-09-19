@@ -20,7 +20,8 @@ class MoviesDetailsDataSource {
         final json = jsonDecode(response.body);
         return MovieDetailsResponse.fromJson(json);
       } else {
-        throw Exception('Failed to load movie details. Status: ${response.statusCode}');
+        throw Exception(
+            'Failed to load movie details. Status: ${response.statusCode}');
       }
     } catch (e) {
       print('Exception in getMoviesDetails: $e');

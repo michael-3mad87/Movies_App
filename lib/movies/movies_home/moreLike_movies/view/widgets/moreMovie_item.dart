@@ -3,31 +3,30 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
-import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
+import 'package:movies_app/movies/movies_home/moreLike_movies/data/model/moreLikeMovies.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
-class RecommendMovieItem extends StatelessWidget {
-  const RecommendMovieItem(this.recommendMovie, {super.key});
-  final RecommendedMovies recommendMovie;
+class MoremovieItem extends StatelessWidget {
+  MoremovieItem(this.movies, {super.key});
 
+  moreLikeMovies movies;
   @override
   Widget build(BuildContext context) {
-    String year =
-        ConstantsFunction.formattingDate(recommendMovie.releaseDate ?? '');
+    String year = ConstantsFunction.formattingDate(movies.releaseDate ?? '');
     return InkWell(
       onTap: () {
         Navigator.pushNamed(
           context,
           MoviesDetails.routeName,
-          arguments: recommendMovie.id,
+          arguments: movies.id,
         );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PosterWidget(
-            image: '${ApiConstant.imageUrl}${recommendMovie.posterPath}',
+            image: '${ApiConstant.imageUrl}${movies.posterPath}',
             height: 140,
           ),
           Container(
@@ -51,7 +50,7 @@ class RecommendMovieItem extends StatelessWidget {
                       width: 3,
                     ),
                     Text(
-                      '${recommendMovie.voteAverage!.toStringAsFixed(1)}',
+                      '${movies.voteAverage!.toStringAsFixed(1)}',
                       style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 10.sp,
@@ -63,7 +62,7 @@ class RecommendMovieItem extends StatelessWidget {
                   height: 3,
                 ),
                 Text(
-                  recommendMovie.originalTitle ?? '',
+                  movies.originalTitle ?? '',
                   style: TextStyle(
                       color: AppTheme.white,
                       fontSize: 12.sp,
@@ -73,8 +72,7 @@ class RecommendMovieItem extends StatelessWidget {
                   height: 1,
                 ),
                 Text(
-                  ConstantsFunction.formattingDate(
-                      recommendMovie.releaseDate ?? ''),
+                  ConstantsFunction.formattingDate(movies.releaseDate ?? ''),
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 9.sp,
