@@ -5,6 +5,8 @@ import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/rec
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../movies_search/view/search_tab.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
   static const String routeName = 'HomeScreen';
@@ -14,7 +16,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> screens = [];
+  List<Widget> screens = [
+    const HomeContent(), // الشاشة الرئيسية
+    const SearchTab(),   // شاشة البحث
+    const Center(child: Text('Browse')), // شاشة التصفح
+    const Center(child: Text('WatchList')), // شاشة قائمة المشاهدة
+  ];
+
   int index = 0;
 
   @override
@@ -24,8 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
-          index = value;
-          setState(() {});
+          setState(() {
+            index = value; // تحديث الفهرس لتغيير الشاشة
+          });
         },
         items: const [
           BottomNavigationBarItem(
@@ -55,20 +64,30 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            const SliderMovie(),
-            SizedBox(
-              height: 10.h,
-            ),
-            const ReleasesMovieList(),
-            SizedBox(
-              height: 10.h,
-            ),
-            const RecommendedMoviesList()
-          ],
-        ),
+        child: screens[index], // عرض الشاشة بناءً على الفهرس الحالي
       ),
+    );
+  }
+}
+
+// محتوى الشاشة الرئيسية الأصلية
+class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SliderMovie(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const ReleasesMovieList(),
+        SizedBox(
+          height: 10.h,
+        ),
+        const RecommendedMoviesList()
+      ],
     );
   }
 }
