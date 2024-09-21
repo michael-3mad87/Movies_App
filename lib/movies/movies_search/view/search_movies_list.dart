@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../searched_movie_item/searched_movie_item.dart';
@@ -15,11 +16,17 @@ class _SearchedMovieListState extends State<SearchedMovieList> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<SearchTabViewModel>(context);
-    return ListView.builder(
+    return ListView.separated(
       itemCount: provider.movies.length,
       itemBuilder: (context, index) {
         return SearchedMovieItem(movie: provider.movies[index]);
       },
+      separatorBuilder: (BuildContext context, int index) => Container(
+        margin: EdgeInsets.symmetric(vertical: 16.h),
+        color: Colors.grey,
+        width: double.infinity,
+        height: 2,
+      ),
     );
   }
 }
