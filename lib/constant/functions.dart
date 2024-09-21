@@ -1,5 +1,12 @@
 import 'package:intl/intl.dart';
 
+<<<<<<< HEAD
+class constantsfunction {
+  static String formatingdate(String date) {
+    DateTime parsedDate = DateTime.parse(date);
+    String formattedYear = DateFormat.y().format(parsedDate);
+    return formattedYear;
+=======
 class ConstantsFunction {
   static String formattingDate(String date) {
     try {
@@ -9,5 +16,6 @@ class ConstantsFunction {
     } on Exception {
       return DateTime.now().year.toString();
     }
+>>>>>>> origin/feature/home
   }
 }

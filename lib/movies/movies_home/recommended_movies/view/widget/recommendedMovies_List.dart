@@ -7,8 +7,8 @@ import 'package:movies_app/shared/error_state.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:provider/provider.dart';
 
-class RecommendedMoviesList extends StatelessWidget {
-  const RecommendedMoviesList({super.key});
+class RecommendedmoviesList extends StatelessWidget {
+  const RecommendedmoviesList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,13 @@ class RecommendedMoviesList extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             color: AppTheme.grey,
-            height: 268.h,
+            height: 275.h,
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Recommended',
+                  'Recomended',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 const SizedBox(
@@ -34,15 +34,15 @@ class RecommendedMoviesList extends StatelessWidget {
                 Expanded(
                   child: Consumer<RecommendedViewModel>(
                     builder: (_, viewModel, __) {
-                      if (viewModel.isLoading) {
-                        return const LoadingState();
-                      } else if (viewModel.errorMessage != null) {
-                        return const ErrorState();
+                      if (viewModel.isloading) {
+                        return LoadingState();
+                      } else if (viewModel.errormessage != null) {
+                        return ErrorState();
                       } else {
                         return ListView.separated(
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) => RecommendMovieItem(
-                                viewModel.recommendMovies[index]),
+                                viewModel.recommend_movies[index]),
                             separatorBuilder: (context, index) =>
                                 const SizedBox(
                                   width: 8,

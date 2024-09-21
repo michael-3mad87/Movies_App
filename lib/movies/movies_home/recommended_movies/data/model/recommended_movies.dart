@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+class recommended_movies {
+  bool? adult;
+  String? backdropPath;
+  List<int>? genreIds;
+  int? id;
+  String? originalLanguage;
+  String? originalTitle;
+  String? overview;
+  double? popularity;
+  String? posterPath;
+  String? releaseDate;
+  String? title;
+  bool? video;
+  double? voteAverage;
+  int? voteCount;
+
+  recommended_movies(
+=======
 class RecommendedMovies {
   bool? adult;
   String? backdropPath;
@@ -20,6 +39,7 @@ class RecommendedMovies {
   int? voteCount;
 
   RecommendedMovies(
+>>>>>>> origin/feature/home
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -35,7 +55,11 @@ class RecommendedMovies {
       this.voteAverage,
       this.voteCount});
 
+<<<<<<< HEAD
+  recommended_movies.fromJson(Map<String, dynamic> json) {
+=======
   RecommendedMovies.fromJson(Map<String, dynamic> json) {
+>>>>>>> origin/feature/home
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
