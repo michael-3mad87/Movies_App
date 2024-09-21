@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
+import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
+import 'package:movies_app/movies/movies_home/view/widgets/background_stack.dart';
 import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/save_button.dart';
@@ -10,11 +12,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class SliderItem extends StatelessWidget {
   const SliderItem(this.slidableMovieModel, {super.key});
-  final Movies slidableMovieModel;
+  final MoviesPopular slidableMovieModel;
   @override
   Widget build(BuildContext context) {
     String year =
-        constantsfunction.formatingdate(slidableMovieModel.releaseDate ?? '');
+        ConstantsFunction.formattingDate(slidableMovieModel.releaseDate ?? '');
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -26,51 +28,32 @@ class SliderItem extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15.r),
-                  topRight: Radius.circular(15.r),
-                ),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
-                  placeholder: (_, __) => const LoadingState(),
-                  width: MediaQuery.of(context).size.width,
-                  height: 210.h,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned.fill(
-                child: Center(
-                  child: Container(
-                    width: 60.w,
-                    height: 60.w,
-                    decoration: const BoxDecoration(
-                      color: AppTheme.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.play_arrow,
-                      color: AppTheme.primary,
-                      size: 45.sp,
-                    ),
-                  ),
-                ),
-              ),
+              BackgroundStack(
+                  image:
+                      '${ApiConstant.imageUrl}${slidableMovieModel.backdropPath}'),
               Positioned(
                 left: 20.w,
                 bottom: -50.h,
                 child: Stack(
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.r),
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
-                        placeholder: (_, __) => const LoadingState(),
-                        width: 129.w,
-                        height: 190.h,
-                        fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          MoviesDetails.routeName,
+                          arguments: slidableMovieModel.id,
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.r),
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              '${ApiConstant.imageUrl}${slidableMovieModel.posterPath}',
+                          placeholder: (_, __) => const LoadingState(),
+                          width: 129.w,
+                          height: 190.h,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -107,18 +90,18 @@ class SliderItem extends StatelessWidget {
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
-                          SizedBox(width: 8.w),
+                          SizedBox(width: 14.w),
+                          const Icon(
+                            Icons.star_outlined,
+                            size: 14,
+                            color: AppTheme.gold,
+                          ),
                           Text(
-                            ' ${slidableMovieModel.voteAverage}',
+                            ' ${slidableMovieModel.voteAverage!.toStringAsFixed(1)}',
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
-                          SizedBox(width: 8.w),
-                          Text(
-                            '',
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 14.sp),
-                          ),
+                          
                         ],
                       ),
                     ],

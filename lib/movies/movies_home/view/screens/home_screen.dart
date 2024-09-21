@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
-import 'package:movies_app/movies/movies_home/newRealse_movies/view/widgets/releases_movie_list.dart';
+import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widgets/releases_movie_list.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
-import 'package:movies_app/movies/movies_search/view/search_tab.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,19 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Widget> screens = [];
   int index = 0;
-
-  List<Widget> screens = [
-    Column(
-      children: const [
-        SliderMovie(),
-        ReleasesMovieList(),
-        SizedBox(height: 12),
-        RecommendedmoviesList(),
-      ],
-    ),
-    const SearchTab(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
-          setState(() {
-            index = value;
-          });
+          index = value;
+          setState(() {});
         },
         items: const [
           BottomNavigationBarItem(
@@ -61,13 +49,25 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             label: 'WatchList',
             icon: ImageIcon(
-              AssetImage('assets/icons/watchlist.png'),
+              AssetImage('assets/icons/watch.png'),
             ),
           ),
         ],
       ),
       body: SafeArea(
-        child: screens[index],
+        child: Column(
+          children: [
+            const SliderMovie(),
+            SizedBox(
+              height: 10.h,
+            ),
+            const ReleasesMovieList(),
+            SizedBox(
+              height: 10.h,
+            ),
+            const RecommendedMoviesList()
+          ],
+        ),
       ),
     );
   }
