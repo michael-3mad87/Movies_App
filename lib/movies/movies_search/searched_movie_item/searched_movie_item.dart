@@ -6,7 +6,6 @@ import '../../../shared/loading_state.dart';
 import '../../movies_details/views/screens/movie_details.dart';
 import '../../movies_home/popular/data/models/movies.dart';
 
-
 class SearchedMovieItem extends StatelessWidget {
   final MoviesPopular movie;
   const SearchedMovieItem({super.key, required this.movie});
@@ -20,7 +19,6 @@ class SearchedMovieItem extends StatelessWidget {
         Navigator.of(context).pushNamed(
           MoviesDetails.routeName,
           arguments: movie.id,
-
         );
       },
       child: Container(
@@ -35,21 +33,22 @@ class SearchedMovieItem extends StatelessWidget {
                   children: [
                     movie.backdropPath != '' && movie.backdropPath != null
                         ? CachedNetworkImage(
-                      imageUrl:
-                      'https://image.tmdb.org/t/p/original${movie.backdropPath}',
-                      progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      const LoadingState(),
-                      errorWidget: (context, url, error) =>
-                      const Icon(Icons.error),
-                      height: screenHeight * 0.1,
-                      width: screenWidth * 0.37,
-                      fit: BoxFit.fill,
-                    )
+                            imageUrl:
+                                'https://image.tmdb.org/t/p/original${movie.backdropPath}',
+                            progressIndicatorBuilder:
+                                (context, url, downloadProgress) =>
+                                    const LoadingState(),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error),
+                            height: screenHeight * 0.1,
+                            width: screenWidth * 0.37,
+                            fit: BoxFit.fill,
+                          )
                         : SizedBox(
-                      height: screenHeight * 0.1,
-                      width: screenWidth * 0.37,
-                      child: const Icon(Icons.error),
-                    ),
+                            height: screenHeight * 0.1,
+                            width: screenWidth * 0.37,
+                            child: const Icon(Icons.error),
+                          ),
                     const SizedBox(width: 8),
                     SizedBox(
                       width: screenWidth * 0.45,
@@ -59,15 +58,19 @@ class SearchedMovieItem extends StatelessWidget {
                           Text(
                             movie.title ?? '',
                             overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              fontSize: 18,color: AppTheme.white
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 18, color: AppTheme.white),
                           ),
                           movie.releaseDate != '' && movie.releaseDate != null
                               ? Text(
-                            movie.releaseDate!.substring(0, 4),
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppTheme.white),
-                          )
+                                  movie.releaseDate!.substring(0, 4),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(color: AppTheme.white),
+                                )
                               : const SizedBox(),
                         ],
                       ),

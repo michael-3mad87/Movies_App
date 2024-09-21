@@ -3,17 +3,16 @@ import 'package:flutter/cupertino.dart';
 import '../../movies_home/popular/data/models/movies.dart';
 import '../data/repository/search_tab_repository.dart';
 
-class SearchTabViewModel with ChangeNotifier{
+class SearchTabViewModel with ChangeNotifier {
   final repo = SearchTabRepository();
   List<MoviesPopular> movies = [];
 
-  Future<void> changeMovies(String query)async{
-    try{
+  Future<void> changeMovies(String query) async {
+    try {
       movies = await repo.getSearchResult(query);
       notifyListeners();
-    }catch(error){
+    } catch (error) {
       print(error);
     }
   }
-
 }
