@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies/movies_home/popular/model_view/popular_model_view.dart';
+import 'package:movies_app/movies/movies_home/popular/view_model/popular_view_model.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_item.dart';
 import 'package:movies_app/shared/error_state.dart';
 import 'package:movies_app/shared/loading_state.dart';
@@ -18,8 +18,8 @@ class _SliderMovieState extends State<SliderMovie> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => PopularModelView(),
-      child: Consumer<PopularModelView>(
+      create: (_) => PopularViewModel(),
+      child: Consumer<PopularViewModel>(
         builder: (_, popularViewModel, __) {
           if (popularViewModel.isLoading) {
             return const LoadingState();

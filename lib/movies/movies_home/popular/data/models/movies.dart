@@ -2,7 +2,7 @@ class MoviesPopular {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
-  @override
+
   int? id;
   String? originalLanguage;
   String? originalTitle;

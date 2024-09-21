@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
-import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/movies/movies_home/view/widgets/background_stack.dart';
 import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/shared/loading_state.dart';

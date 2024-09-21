@@ -17,7 +17,7 @@ class RecommendedMoviesList extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             color: AppTheme.grey,
             height: 268.h,
             width: double.infinity,
@@ -47,7 +47,7 @@ class RecommendedMoviesList extends StatelessWidget {
                                 const SizedBox(
                                   width: 8,
                                 ),
-                            itemCount: 5);
+                            itemCount: viewModel.recommendMovies.length);
                       }
                     },
                   ),

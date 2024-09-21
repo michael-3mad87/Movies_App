@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_app/movies/movies_details/data/model/movie_details_response/movie_details_response.dart';
+import 'package:movies_app/movies/movies_details/movie_details/data/model/movie_details_response/movie_details_response.dart';
 
-class MoviesDetailsDataSource {
+class MoviesDetailsAPIDataSource {
   Future<MovieDetailsResponse?> getMoviesDetails(int movieId) async {
     try {
       final uri = Uri.parse(
@@ -18,7 +18,12 @@ class MoviesDetailsDataSource {
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        return MovieDetailsResponse.fromJson(json);
+        final movieDetailsResponse = MovieDetailsResponse.fromJson(json);
+        if (movieDetailsResponse != null) {
+          return movieDetailsResponse;
+        } else {
+          throw Exception('failed to get movie details');
+        }
       } else {
         throw Exception(
             'Failed to load movie details. Status: ${response.statusCode}');

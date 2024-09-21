@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
-import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/poster_widget.dart';
@@ -13,8 +13,6 @@ class RecommendMovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String year =
-        ConstantsFunction.formattingDate(recommendMovie.releaseDate ?? '');
     return InkWell(
       onTap: () {
         Navigator.pushNamed(
@@ -42,7 +40,7 @@ class RecommendMovieItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star_outlined,
                       size: 14,
                       color: AppTheme.gold,
@@ -51,7 +49,7 @@ class RecommendMovieItem extends StatelessWidget {
                       width: 3,
                     ),
                     Text(
-                      '${recommendMovie.voteAverage!.toStringAsFixed(1)}',
+                      recommendMovie.voteAverage!.toStringAsFixed(1),
                       style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 10.sp,
