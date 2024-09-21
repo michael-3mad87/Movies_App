@@ -162,7 +162,8 @@ class _MoviesDetailsState extends State<MoviesDetails> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
-                  child: Expanded(
+                  child: SizedBox(
+                    height: 265.h,
                     child: MoremoviesList(movieId ?? 0),
                   ),
                 ),
