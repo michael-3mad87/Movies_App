@@ -16,7 +16,7 @@ class MoremovieItem extends StatelessWidget {
     String year = ConstantsFunction.formattingDate(movies.releaseDate ?? '');
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
+        Navigator.pushReplacementNamed(
           context,
           MoviesDetails.routeName,
           arguments: movies.id,
