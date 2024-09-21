@@ -4,7 +4,6 @@ import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widget
 import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../movies_search/view/search_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,10 +16,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [
-    const HomeContent(), // الشاشة الرئيسية
-    const SearchTab(),   // شاشة البحث
-    const Center(child: Text('Browse')), // شاشة التصفح
-    const Center(child: Text('WatchList')), // شاشة قائمة المشاهدة
+    const HomeContent(),
+    const SearchTab(),
   ];
 
   int index = 0;
@@ -33,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: index,
         onTap: (value) {
           setState(() {
-            index = value; // تحديث الفهرس لتغيير الشاشة
+            index = value;
           });
         },
         items: const [
@@ -64,13 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-        child: screens[index], // عرض الشاشة بناءً على الفهرس الحالي
+        child: screens[index],
       ),
     );
   }
 }
 
-// محتوى الشاشة الرئيسية الأصلية
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 
@@ -86,7 +82,7 @@ class HomeContent extends StatelessWidget {
         SizedBox(
           height: 10.h,
         ),
-        const RecommendedMoviesList()
+        const RecommendedMoviesList(),
       ],
     );
   }
