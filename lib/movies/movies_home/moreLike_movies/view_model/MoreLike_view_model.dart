@@ -3,8 +3,8 @@ import 'package:movies_app/movies/movies_home/moreLike_movies/data/data_source/m
 import 'package:movies_app/movies/movies_home/moreLike_movies/data/model/moreLikeMovies.dart';
 
 class MorelikeViewModel extends ChangeNotifier {
-  MorelikeViewModel(this.movieId){
-getLikeMoreMovies();
+  MorelikeViewModel(this.movieId) {
+    getLikeMoreMovies();
   }
   int movieId;
   bool isLoading = false;
