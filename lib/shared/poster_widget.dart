@@ -36,7 +36,7 @@ class PosterWidget extends StatelessWidget {
         Positioned(
           top: -8.h,
           left: -10.w,
-          child: const SavedButton(),
+          child:  SavedButton(),
         ),
       ],
     );
