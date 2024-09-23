@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_app/movies/movies_details/data/model/movie_details_response/movie_details_response.dart';
+import 'package:movies_app/movies/movies_details/movie_details/data/model/movie_details_response/movie_details_response.dart';
 
 class MoviesDetailsDataSource {
   Future<MovieDetailsResponse?> getMoviesDetails(int movieId) async {

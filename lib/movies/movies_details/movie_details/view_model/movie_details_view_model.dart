@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_details/data/data_source/movies_details_data_source.dart';
-import 'package:movies_app/movies/movies_details/data/model/movie_details_response/movie_details_response.dart';
+import 'package:movies_app/movies/movies_details/movie_details/data/data_source/movies_details_data_source.dart';
+import 'package:movies_app/movies/movies_details/movie_details/data/model/movie_details_response/movie_details_response.dart';
 
 class MovieDetailsViewModel extends ChangeNotifier {
   String? errorMessage;

@@ -13,6 +13,7 @@ class AppTheme {
   static const Color appBarColor = Color(0xff1D1E1D);
   static const Color borderColor = Color(0xff514F4F);
   static const Color textGenreColor = Color(0xffCBCBCB);
+  static const Color searchAppColor = Color(0xff514F4F);
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: primary,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(

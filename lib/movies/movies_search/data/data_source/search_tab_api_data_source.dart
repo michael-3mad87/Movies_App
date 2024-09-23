@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/movies/movies_search/data/data_source/search_tab_data_source.dart';
 
-import '../../../../data/search_result.dart';
+import '../model/search_result.dart';
 import '../../../movies_home/popular/data/models/movies.dart';
 
 class SearchTabAPIDataSource extends SearchTabDataSource {
@@ -16,11 +17,10 @@ class SearchTabAPIDataSource extends SearchTabDataSource {
       "page": page.toString(),
     });
     final response = await http.get(uri, headers: {
-      'Authorization':
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGM1ZmU0NzAxYjRiZDlkZmZhNDBjMzU5YTUwYzFhOCIsIm5iZiI6MTcyNjMxMzEzNi44NzU2OTYsInN1YiI6IjY2ZTU2YmNlZjNkM2Y4YmZmOTZkODNmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wJoLEi8gocnRFoKiw6ZAKlK0odFbSFoqQlPWs8e3SQs',
+      'Authorization': ApiConstant.token,
     });
     final json = jsonDecode(response.body);
-    final searchResult = SearchResult.fromJson(json);
+    final searchResult = SearchResultResponse.fromJson(json);
     return searchResult.movies;
   }
 }

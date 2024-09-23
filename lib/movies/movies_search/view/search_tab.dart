@@ -23,7 +23,7 @@ class _SearchTabState extends State<SearchTab> {
         child: Column(
           children: [
             SizedBox(
-              height: 60.h,
+              height: 50.h,
               child: TextFormField(
                 cursorColor: AppTheme.white,
                 style: TextStyle(color: AppTheme.white),
@@ -32,6 +32,7 @@ class _SearchTabState extends State<SearchTab> {
                       .changeMovies(value);
                 },
                 decoration: InputDecoration(
+                
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(35),
                     borderSide: BorderSide(color: AppTheme.white),
@@ -49,11 +50,11 @@ class _SearchTabState extends State<SearchTab> {
                     color: AppTheme.white,
                   ),
                   filled: true,
-                  fillColor: AppTheme.grey,
+                  fillColor: AppTheme.searchAppColor,
                   hintText: 'Search',
                   hintStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        color: Colors.black,
-                        fontSize: 24.sp,
+                        color: AppTheme.white.withOpacity(.5),
+                        fontSize: 17.sp,
                         fontWeight: FontWeight.w500,
                       ),
                 ),

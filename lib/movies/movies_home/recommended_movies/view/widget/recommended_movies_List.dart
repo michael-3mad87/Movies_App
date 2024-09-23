@@ -47,7 +47,7 @@ class RecommendedMoviesList extends StatelessWidget {
                                 const SizedBox(
                                   width: 8,
                                 ),
-                            itemCount: 5);
+                            itemCount:  viewModel.recommendMovies.length);
                       }
                     },
                   ),

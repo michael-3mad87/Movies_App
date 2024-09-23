@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
-import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
-import 'package:movies_app/movies/movies_home/moreLike_movies/data/model/moreLikeMovies.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
+import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
-class MoremovieItem extends StatelessWidget {
-  MoremovieItem(this.movies, {super.key});
+class MoreLikeMovieItem extends StatelessWidget {
+  const MoreLikeMovieItem(this.movies, {super.key});
 
-  moreLikeMovies movies;
+  final MoreLikeMovies movies;
   @override
   Widget build(BuildContext context) {
-    String year = ConstantsFunction.formattingDate(movies.releaseDate ?? '');
+   
     return InkWell(
       onTap: () {
         Navigator.pushReplacementNamed(
@@ -43,14 +43,14 @@ class MoremovieItem extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.star_outlined,
-                      size: 14,
+                      size: 16.h,
                       color: AppTheme.gold,
                     ),
                     const SizedBox(
                       width: 3,
                     ),
                     Text(
-                      '${movies.voteAverage!.toStringAsFixed(1)}',
+                      movies.voteAverage!.toStringAsFixed(1),
                       style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 10.sp,
@@ -58,8 +58,8 @@ class MoremovieItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 3,
+                SizedBox(
+                  height: 3.h,
                 ),
                 Text(
                   movies.originalTitle ?? '',
@@ -68,8 +68,8 @@ class MoremovieItem extends StatelessWidget {
                       fontSize: 12.sp,
                       overflow: TextOverflow.ellipsis),
                 ),
-                const SizedBox(
-                  height: 1,
+                SizedBox(
+                  height: 1.h,
                 ),
                 Text(
                   ConstantsFunction.formattingDate(movies.releaseDate ?? ''),
