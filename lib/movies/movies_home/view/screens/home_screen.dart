@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_browse/view/widget/movies_Browse_List.dart';
+import 'package:movies_app/movies/movies_browse/view/widget/categories_List.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widgets/releases_movie_list.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommended_movies_List.dart';
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [
     const HomeContent(),
     const SearchTab(),
-    MoviesBrowse(),
+    Categories_List(),
   ];
 
   int index = 0;

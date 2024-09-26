@@ -5,8 +5,8 @@ import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/loading_state.dart';
 
-class MoviesbrowseItem extends StatelessWidget {
-  MoviesbrowseItem({super.key, required this.category});
+class Category_Item extends StatelessWidget {
+  Category_Item({super.key, required this.category});
   final categories category;
   Map<String, String> categoryImages = {
     "Action":
