@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
 import 'package:movies_app/movies/movies_browse/view/widget/moviesBrowse_Item.dart';
+import 'package:movies_app/movies/movies_browse/view_model/categories_viewModel.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/error_state.dart';
 import 'package:movies_app/shared/loading_state.dart';
+import 'package:provider/provider.dart';
 
 class MoviesBrowse extends StatelessWidget {
   MoviesBrowse({super.key});
- 
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,16 +26,35 @@ class MoviesBrowse extends StatelessWidget {
                   fontSize: 22.sp,
                 ),
           ),
+          const SizedBox(
+            height: 16,
+          ),
           Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 14,
-                childAspectRatio: 1.7,
-                crossAxisSpacing: 14,
+            child: ChangeNotifierProvider(
+              create: (_) => CategoriesViewmodel(),
+              child: Consumer<CategoriesViewmodel>(
+                builder: (context, viewModel, _) {
+                  if (viewModel.isLoading) {
+                    return const LoadingState();
+                  } else if (viewModel.errorMessage != null) {
+                    return const ErrorState();
+                  } else {
+                    return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 14,
+                        childAspectRatio: 1.7,
+                        crossAxisSpacing: 14,
+                      ),
+                      itemBuilder: (context, index) => MoviesbrowseItem(
+                        category: viewModel.categoires[index],
+                      ),
+                      itemCount: viewModel.categoires.length,
+                    );
+                  }
+                },
               ),
-              itemBuilder: (context, index) => MoviesbrowseItem(category:  , image: '',),
-              itemCount: 10,
             ),
           ),
         ],

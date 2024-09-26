@@ -3,6 +3,9 @@ import 'package:movies_app/movies/movies_browse/data/data_source/moviesBrowse_da
 import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
 
 class CategoriesViewmodel extends ChangeNotifier {
+  CategoriesViewmodel() {
+    getcategories();
+  }
   bool isLoading = false;
   List<categories> categoires = [];
   String? errorMessage;
@@ -13,12 +16,7 @@ class CategoriesViewmodel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final response = await dataSource.getcategories();
-      if (response.genres!.isNotEmpty && response.genres != null) {
-        categoires = response.genres!;
-      } else {
-        errorMessage = 'failed to get categories';
-      }
+      categoires = await dataSource.getcategories();
     } catch (e) {
       errorMessage = e.toString();
     }
