@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/shared/app_theme.dart';
-import '../../../shared/loading_state.dart';
-import '../../movies_details/views/screens/movie_details.dart';
-import '../../movies_home/popular/data/models/movies.dart';
+import '../../../../shared/loading_state.dart';
+import '../../../movies_details/movie_details/views/screens/movie_details.dart';
+import '../../../movies_home/popular/data/models/movies.dart';
 
 class SearchedMovieItem extends StatelessWidget {
   final MoviesPopular movie;
@@ -57,13 +57,30 @@ class SearchedMovieItem extends StatelessWidget {
                               color: AppTheme.white,
                             ),
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Text(
                         ConstantsFunction.formattingDate(
-                                movie.releaseDate ?? ''),
+                            movie.releaseDate ?? ''),
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall!
                             .copyWith(color: AppTheme.white),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        movie.overview ?? "",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppTheme.textGenreColor,
+                                  height: 1.5,
+                                  fontSize: 15.sp,
+                                ),
                       ),
                     ],
                   ),

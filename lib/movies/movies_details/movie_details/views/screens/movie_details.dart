@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/constant/api_constant.dart';
-import 'package:movies_app/movies/movies_details/view_model/movie_details_view_model.dart';
-import 'package:movies_app/movies/movies_home/moreLike_movies/view/widgets/moreMovies_List.dart';
+import 'package:movies_app/movies/movies_details/movie_details/view_model/movie_details_view_model.dart';
+import 'package:movies_app/movies/movies_details/more_like_movies/view/widgets/more_movies_List.dart';
 import 'package:movies_app/movies/movies_home/view/widgets/background_stack.dart';
-import 'package:movies_app/movies/movies_details/views/widget/container_genre.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/widget/container_genre.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/shared/error_state.dart';
@@ -164,7 +164,7 @@ class _MoviesDetailsState extends State<MoviesDetails> {
                   padding: const EdgeInsets.only(top: 10.0),
                   child: SizedBox(
                     height: 265.h,
-                    child: MoremoviesList(movieId ?? 0),
+                    child: MoreLikeMoviesList(movieId ?? 0),
                   ),
                 ),
               ],

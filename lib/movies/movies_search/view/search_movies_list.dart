@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../searched_movie_item/searched_movie_item.dart';
+import 'widget/searched_movie_item.dart';
 import '../view_model/search_tab_view_model.dart';
 
 class SearchedMovieList extends StatefulWidget {
@@ -25,7 +25,7 @@ class _SearchedMovieListState extends State<SearchedMovieList> {
         margin: EdgeInsets.symmetric(vertical: 16.h),
         color: Colors.grey,
         width: double.infinity,
-        height: 2,
+        height: 2.h,
       ),
     );
   }

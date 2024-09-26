@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/movies/movies_browse/view/widget/movies_Browse_List.dart';
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widgets/releases_movie_list.dart';
-import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommendedMovies_List.dart';
+import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommended_movies_List.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../movies_search/view/search_tab.dart';
@@ -82,7 +82,7 @@ class HomeContent extends StatelessWidget {
         ),
         const ReleasesMovieList(),
         SizedBox(
-          height: 10.h,
+          height: 20.h,
         ),
         const RecommendedMoviesList(),
       ],

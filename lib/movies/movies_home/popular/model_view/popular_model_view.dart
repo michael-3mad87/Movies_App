@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_home/popular/data/data_source/popular_movies_data_source.dart';
+
 import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
+import 'package:movies_app/movies/movies_home/popular/data/repository/popular_repository.dart';
+import 'package:movies_app/shared/services_locator.dart';
 
 class PopularModelView extends ChangeNotifier {
-  final dataSource = PopularMoviesDataSource();
+  PopularRepository repository;
   bool isLoading = false;
   List<MoviesPopular> popularMovies = [];
   String? errorMessage;
 
-  PopularModelView() {
+  PopularModelView()
+      : repository = PopularRepository(ServicesLocator.popularDataSource) {
     getPopularMovies();
   }
 
@@ -16,13 +19,7 @@ class PopularModelView extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     try {
-      final response = await dataSource.getPopularMovies();
-
-      if (response.movies != null && response.movies!.isNotEmpty) {
-        popularMovies = response.movies!;
-      } else {
-        errorMessage = 'Failed to get movies';
-      }
+      popularMovies = await repository.getPopularMovies();
     } catch (e) {
       errorMessage = e.toString();
     }
