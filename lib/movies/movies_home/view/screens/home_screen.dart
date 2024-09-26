@@ -82,7 +82,7 @@ class HomeContent extends StatelessWidget {
         ),
         const ReleasesMovieList(),
         SizedBox(
-          height: 20.h,
+          height: 10.h,
         ),
         const RecommendedMoviesList(),
       ],

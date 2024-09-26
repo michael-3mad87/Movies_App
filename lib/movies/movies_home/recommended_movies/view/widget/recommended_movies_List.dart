@@ -29,7 +29,7 @@ class RecommendedMoviesList extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 const SizedBox(
-                  height: 8,
+                  height: 6,
                 ),
                 Expanded(
                   child: Consumer<RecommendedViewModel>(
@@ -47,7 +47,7 @@ class RecommendedMoviesList extends StatelessWidget {
                                 const SizedBox(
                                   width: 8,
                                 ),
-                            itemCount:  viewModel.recommendMovies.length);
+                            itemCount: viewModel.recommendMovies.length);
                       }
                     },
                   ),

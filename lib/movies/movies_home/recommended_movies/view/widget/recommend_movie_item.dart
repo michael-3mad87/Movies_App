@@ -36,7 +36,7 @@ class RecommendMovieItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4)),
             padding: const EdgeInsets.all(4),
             width: 110.w,
-            height: 65.h,
+            height: 70.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

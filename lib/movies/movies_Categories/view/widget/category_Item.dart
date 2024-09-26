@@ -14,7 +14,7 @@ class Category_Item extends StatelessWidget {
     "Adventure":
         "https://www.europeanstudios.com/wp-content/uploads/2024/02/adventure-film-genre-1-1024x585.jpg",
     "Animation":
-        "https://images.wallpapersden.com/image/download/wonder-park-animation-movie-2019_a2hrbmaUmZqaraWkpJRrZWVlrWhqZWU.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/N9LQPB6unkaN9GCY9CUMZw/1200x675mf.jpg",
     "Comedy":
         "https://c4.wallpaperflare.com/wallpaper/511/419/618/minions-comedy-movie-wallpaper-preview.jpg",
     "Crime":
