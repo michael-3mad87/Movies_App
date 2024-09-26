@@ -1,4 +1,4 @@
-import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
+import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
 
 class categoriesResponse {
   List<categories>? genres;

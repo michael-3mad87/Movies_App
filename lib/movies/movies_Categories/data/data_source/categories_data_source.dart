@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_app/movies/movies_browse/data/model/CategoriesResponse.dart';
-import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
+import 'package:movies_app/movies/movies_Categories/data/model/CategoriesResponse.dart';
+import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
 
 class CategoriesDatasource {
   Future<List<categories>> getcategories() async {

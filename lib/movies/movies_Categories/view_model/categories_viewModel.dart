@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
-import 'package:movies_app/movies/movies_browse/data/repository/category_repository.dart';
+import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
+import 'package:movies_app/movies/movies_Categories/data/repository/category_repository.dart';
 import 'package:movies_app/shared/services_locator.dart';
 
 class CategoriesViewmodel extends ChangeNotifier {

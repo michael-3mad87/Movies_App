@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies/movies_browse/data/model/categories.dart';
-import 'package:movies_app/movies/movies_browse/view/widget/category_Item.dart';
-import 'package:movies_app/movies/movies_browse/view_model/categories_viewModel.dart';
+import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
+import 'package:movies_app/movies/movies_Categories/view/widget/category_Item.dart';
+import 'package:movies_app/movies/movies_Categories/view_model/categories_viewModel.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/error_state.dart';
 import 'package:movies_app/shared/loading_state.dart';
