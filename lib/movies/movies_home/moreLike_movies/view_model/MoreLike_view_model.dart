@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_home/moreLike_movies/data/data_source/moreLike_DataSource.dart';
-import 'package:movies_app/movies/movies_home/moreLike_movies/data/model/moreLikeMovies.dart';
+import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
+import 'package:movies_app/movies/movies_details/more_like_movies/data/repository/more_like_repository.dart';
+import 'package:movies_app/shared/services_locator.dart';
 
-class MorelikeViewModel extends ChangeNotifier {
-  MorelikeViewModel(this.movieId) {
+class MoreLikeViewModel extends ChangeNotifier {
+  MoreLikeRepository repository;
+
+  MoreLikeViewModel(this.movieId)
+      : repository = MoreLikeRepository(ServicesLocator.moreLikeDataSource) {
     getLikeMoreMovies();
   }
   int movieId;
   bool isLoading = false;
-  List<moreLikeMovies> moreMovies = [];
+  List<MoreLikeMovies> moreMovies = [];
   String? errorMessage;
-  final dataSource = MorelikeMoviesDatasource();
   Future<void> getLikeMoreMovies() async {
     isLoading = true;
     notifyListeners();
     try {
-      final response = await dataSource.getMoreMovies(movieId);
-      if (response.results!.isNotEmpty && response.results != null) {
-        moreMovies = response.results!;
-      } else {
-        errorMessage = 'Failed to get movies';
-      }
+      moreMovies = await repository.getMoreMovies(movieId);
     } catch (e) {
       errorMessage = e.toString();
     }
