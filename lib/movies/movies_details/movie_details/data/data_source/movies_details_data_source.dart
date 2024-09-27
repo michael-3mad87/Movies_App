@@ -7,7 +7,7 @@ class MoviesDetailsDataSource {
   Future<MovieDetailsResponse?> getMoviesDetails(int movieId) async {
     try {
       final uri = Uri.parse(
-          'https://api.themoviedb.org/3/movie/$movieId?language=en-US');
+          'https://${ApiConstant.baseUrl}/3/movie/$movieId?language=en-US');
       final response = await http.get(
         uri,
         headers: {

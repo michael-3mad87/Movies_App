@@ -7,7 +7,7 @@ import 'package:movies_app/movies/movies_home/recommended_movies/data/model/reco
 
 class RecommendedAPIDataSource {
   Future<List<RecommendedMovies>> getRecommendedMovies() async {
-    final url = Uri.parse('https://api.themoviedb.org/3/movie/top_rated');
+    final url = Uri.parse('https://${ApiConstant.baseUrl}/3/movie/top_rated');
     try {
       final response = await http.get(url, headers: {
         'Authorization': ApiConstant.token,

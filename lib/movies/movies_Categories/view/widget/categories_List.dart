@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
 import 'package:movies_app/movies/movies_Categories/view/widget/category_Item.dart';
 import 'package:movies_app/movies/movies_Categories/view_model/categories_viewModel.dart';
 import 'package:movies_app/shared/app_theme.dart';

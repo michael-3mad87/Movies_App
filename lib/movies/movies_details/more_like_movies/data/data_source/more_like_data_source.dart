@@ -9,7 +9,7 @@ class MoreLikeMoviesAPIDataSource {
   Future<List<MoreLikeMovies>> getMoreMovies(int movieId) async {
     try {
       final url =
-          Uri.parse('https://api.themoviedb.org/3/movie/$movieId/similar');
+          Uri.parse('https://${ApiConstant.baseUrl}/3/movie/$movieId/similar');
 
       final response = await http.get(url, headers: {
         'Authorization': ApiConstant.token,
@@ -20,7 +20,7 @@ class MoreLikeMoviesAPIDataSource {
         final moreResponse = MoreLikeMoviesResponse.fromJson(json);
         if (moreResponse.results!.isNotEmpty && moreResponse.results != null) {
           return moreResponse.results ?? [];
-        }else{
+        } else {
           throw Exception('failed to get movies like this ');
         }
       } else {

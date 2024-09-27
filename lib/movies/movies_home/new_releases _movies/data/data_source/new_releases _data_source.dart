@@ -5,9 +5,9 @@ import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models
 import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models/new_releases_movies.dart';
 
 class NewReleasesAPIDataSource {
-  Future< List<NewReleasesMovie>> getNewReleasesMovies() async {
+  Future<List<NewReleasesMovie>> getNewReleasesMovies() async {
     try {
-      final uri = Uri.parse('https://api.themoviedb.org/3/movie/upcoming');
+      final uri = Uri.parse('https://${ApiConstant.baseUrl}/3/movie/upcoming');
       final response = await http.get(uri, headers: {
         'Authorization': ApiConstant.token,
         'accept': ApiConstant.accept,

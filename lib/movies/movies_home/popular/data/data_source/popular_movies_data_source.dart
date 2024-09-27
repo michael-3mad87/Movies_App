@@ -8,7 +8,7 @@ class PopularMoviesAPIDataSource {
   Future<List<MoviesPopular>> getPopularMovies() async {
     try {
       final uri = Uri.parse(
-          'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1');
+          'https://${ApiConstant.baseUrl}/3/movie/popular?language=en-US&page=1');
       final response = await http.get(
         uri,
         headers: {
