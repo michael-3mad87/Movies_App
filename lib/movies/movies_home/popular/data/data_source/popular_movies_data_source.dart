@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
+import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/movies/movies_home/popular/data/models/popular_movies_response.dart';
 
-class PopularMoviesDataSource {
-  Future<PopularMoviesResponse> getPopularMovies() async {
+class PopularMoviesAPIDataSource {
+  Future<List<MoviesPopular>> getPopularMovies() async {
     try {
       final uri = Uri.parse(
-          'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1');
+          'https://${ApiConstant.baseUrl}/3/movie/popular?language=en-US&page=1');
       final response = await http.get(
         uri,
         headers: {
@@ -17,7 +18,13 @@ class PopularMoviesDataSource {
       );
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        return PopularMoviesResponse.fromJson(json);
+        final popularResponse = PopularMoviesResponse.fromJson(json);
+        if (popularResponse.movies != null &&
+            popularResponse.movies!.isNotEmpty) {
+          return popularResponse.movies ?? [];
+        } else {
+          throw Exception('failed to get popular movies');
+        }
       } else {
         throw Exception(
             'Failed to load popular movies. Status: ${response.statusCode}');

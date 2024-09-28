@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
-import 'package:movies_app/movies/movies_details/views/screens/movie_details.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/poster_widget.dart';
@@ -36,7 +36,7 @@ class RecommendMovieItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4)),
             padding: const EdgeInsets.all(4),
             width: 110.w,
-            height: 65.h,
+            height: 70.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
