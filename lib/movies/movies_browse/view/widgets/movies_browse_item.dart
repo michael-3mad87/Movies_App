@@ -62,7 +62,7 @@ class MoviesBrowseItem extends StatelessWidget {
                         width: 3,
                       ),
                       Text(
-                        '${browseMovies.voteAverage!.toStringAsFixed(1)}',
+                        browseMovies.voteAverage!.toStringAsFixed(1),
                         style: TextStyle(
                           color: AppTheme.white,
                           fontSize: 12.sp,

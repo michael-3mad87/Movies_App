@@ -15,20 +15,22 @@ class AppTheme {
   static const Color textGenreColor = Color(0xffCBCBCB);
   static const Color searchAppColor = Color(0xff514F4F);
   static ThemeData darkTheme = ThemeData(
-      scaffoldBackgroundColor: primary,
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: gold,
-        unselectedItemColor: unselectedColor,
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        backgroundColor: bottomNavColor,
-      ),
-      appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          backgroundColor: appBarColor,
-          iconTheme: IconThemeData(color: white)),
-      textTheme: const TextTheme(
-          titleMedium: TextStyle(
-              color: white, fontSize: 20, fontWeight: FontWeight.w400)));
+    scaffoldBackgroundColor: primary,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedItemColor: gold,
+      unselectedItemColor: unselectedColor,
+      type: BottomNavigationBarType.fixed,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      backgroundColor: bottomNavColor,
+    ),
+    appBarTheme: const AppBarTheme(
+        centerTitle: true,
+        backgroundColor: appBarColor,
+        iconTheme: IconThemeData(color: white)),
+    textTheme: const TextTheme(
+      titleMedium:
+          TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.w400),
+    ),
+  );
 }

@@ -76,11 +76,12 @@ class Category_Item extends StatelessWidget {
             ),
             Text(
               category.name ?? '',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+              style:Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: AppTheme.white,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold
               ),
+             
             ),
           ],
         ),
