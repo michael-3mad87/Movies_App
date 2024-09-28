@@ -21,30 +21,27 @@ class MoviesBrowseScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: Expanded(
-          child: ChangeNotifierProvider(
-            create: (_) => MoviesBrowseViewModel(category.id ?? 0),
-            child: Consumer<MoviesBrowseViewModel>(
-              builder: (context, viewModel, _) {
-                if (viewModel.isLoading) {
-                  return const LoadingState();
-                } else if (viewModel.errorMessage != null) {
-                  return const ErrorState();
-                } else {
-                  return GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.9,
-                      mainAxisSpacing: 24,
-                      
-                    ),
-                    itemBuilder: (context, index) =>
-                        MoviesBrowseItem(viewModel.browseMovies[index]),
-                    itemCount: viewModel.browseMovies.length,
-                  );
-                }
-              },
-            ),
+        child: ChangeNotifierProvider(
+          create: (_) => MoviesBrowseViewModel(category.id ?? 0),
+          child: Consumer<MoviesBrowseViewModel>(
+            builder: (context, viewModel, _) {
+              if (viewModel.isLoading) {
+                return const LoadingState();
+              } else if (viewModel.errorMessage != null) {
+                return const ErrorState();
+              } else {
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.9,
+                    mainAxisSpacing: 24,
+                  ),
+                  itemBuilder: (context, index) =>
+                      MoviesBrowseItem(viewModel.browseMovies[index]),
+                  itemCount: viewModel.browseMovies.length,
+                );
+              }
+            },
           ),
         ),
       ),

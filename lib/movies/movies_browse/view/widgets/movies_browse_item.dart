@@ -11,24 +11,25 @@ class MoviesBrowseItem extends StatelessWidget {
   final BrowseMovies browseMovies;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          MoviesDetails.routeName,
-          arguments: browseMovies.id,
-        );
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          PosterWidget(
-            image: '${ApiConstant.imageUrl}${browseMovies.posterPath}',
-            height: 180,
-            width: 165,
-          ),
-          Expanded(
-            child: Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            MoviesDetails.routeName,
+            arguments: browseMovies.id,
+          );
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PosterWidget(
+              image: '${ApiConstant.imageUrl}${browseMovies.posterPath}',
+              height: 180,
+              width: 165,
+            ),
+            Container(
               decoration: const BoxDecoration(
                   color: AppTheme.movieListColor,
                   borderRadius: BorderRadius.only(
@@ -45,6 +46,7 @@ class MoviesBrowseItem extends StatelessWidget {
                     style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
                         overflow: TextOverflow.ellipsis),
                   ),
                   const SizedBox(
@@ -52,6 +54,7 @@ class MoviesBrowseItem extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Icon(
                         Icons.star_outlined,
@@ -62,7 +65,7 @@ class MoviesBrowseItem extends StatelessWidget {
                         width: 3,
                       ),
                       Text(
-                        '${browseMovies.voteAverage!.toStringAsFixed(1)}',
+                        browseMovies.voteAverage!.toStringAsFixed(1),
                         style: TextStyle(
                           color: AppTheme.white,
                           fontSize: 12.sp,
@@ -72,9 +75,9 @@ class MoviesBrowseItem extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
