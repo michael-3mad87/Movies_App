@@ -27,17 +27,17 @@ class Categories_List extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          ChangeNotifierProvider(
-            create: (_) => CategoriesViewmodel(),
-            child: Consumer<CategoriesViewmodel>(
-              builder: (context, viewModel, _) {
-                if (viewModel.isLoading) {
-                  return const LoadingState();
-                } else if (viewModel.errorMessage != null) {
-                  return const ErrorState();
-                } else {
-                  return Expanded(
-                    child: GridView.builder(
+          Expanded(
+            child: ChangeNotifierProvider(
+              create: (_) => CategoriesViewmodel(),
+              child: Consumer<CategoriesViewmodel>(
+                builder: (context, viewModel, _) {
+                  if (viewModel.isLoading) {
+                    return const LoadingState();
+                  } else if (viewModel.errorMessage != null) {
+                    return const ErrorState();
+                  } else {
+                    return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -49,10 +49,10 @@ class Categories_List extends StatelessWidget {
                         category: viewModel.categoires[index],
                       ),
                       itemCount: viewModel.categoires.length,
-                    ),
-                  );
-                }
-              },
+                    );
+                  }
+                },
+              ),
             ),
           ),
         ],

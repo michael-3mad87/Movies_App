@@ -15,8 +15,24 @@ class SearchedMovieList extends StatefulWidget {
 class _SearchedMovieListState extends State<SearchedMovieList> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<SearchTabViewModel>(context);
-    return ListView.separated(
+ final provider = Provider.of<SearchTabViewModel>(context);
+    if (provider.movies.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/icons/Icon material-local-movies.png',
+              width: 200.w,
+              height: 200.h,
+            ),
+            const SizedBox(height: 10),
+            
+          ],
+        ),
+      );
+    }
+   return ListView.separated(
       itemCount: provider.movies.length,
       itemBuilder: (context, index) {
         return SearchedMovieItem(movie: provider.movies[index]);
