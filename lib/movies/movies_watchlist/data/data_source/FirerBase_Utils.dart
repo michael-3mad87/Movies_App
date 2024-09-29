@@ -27,4 +27,17 @@ class FirebaseUtils {
     final querySnapshot = await collectionReference.get();
     return querySnapshot.docs.map((doc) => doc.data()).toList();
   }
+
+  static Future<void> updateMovieWatchListStatus(
+      int movieId, bool isWatchList) async {
+    final collectionReference = getWatchListCollection();
+    final doc = collectionReference.doc(movieId.toString());
+
+    try {
+      await doc.update({'isWatchList': isWatchList});
+    } catch (e) {
+      print("Error updating movie's watchlist status: $e");
+      throw Exception("Failed to update movie's watchlist status");
+    }
+  }
 }

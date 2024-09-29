@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_watchlist/watchlist_tap/WatchListViewModel.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/moviesMain.dart';
+import 'package:movies_app/movies/movies_watchlist/data/data_source/FirerBase_Utils.dart';
 import 'package:provider/provider.dart';
-import '../movies/movies_watchlist/watchlist_tap/FirerBase_Utils.dart';
+import 'package:movies_app/movies/movies_watchlist/view_model/WatchListViewModel.dart';
 
 class SavedButton extends StatefulWidget {
   final MoviesMain movie;
@@ -23,11 +23,12 @@ class _SavedButtonState extends State<SavedButton> {
 
         if (widget.movie.isWatchList) {
           await FirebaseUtils.addMovieToWatchList(widget.movie);
-          Provider.of<WatchListViewModel>(context).iswatchlist;
         } else {
-          await FirebaseUtils.deleteMovieFromWatchList(widget.movie.id!);
+          await FirebaseUtils.updateMovieWatchListStatus(
+              widget.movie.id!, widget.movie.isWatchList);
+          Provider.of<WatchListViewModel>(context, listen: false)
+              .removeMovieFromWatchList(widget.movie.id!);
         }
-        await FirebaseUtils.getWatchListMovies();
         setState(() {});
       },
       child: Stack(

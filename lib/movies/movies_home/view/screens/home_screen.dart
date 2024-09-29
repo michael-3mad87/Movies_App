@@ -3,7 +3,7 @@ import 'package:movies_app/movies/movies_Categories/view/widget/categories_List.
 import 'package:movies_app/movies/movies_home/popular/view/widgets/slider_movie.dart';
 import 'package:movies_app/movies/movies_home/new_releases%20_movies/view/widgets/releases_movie_list.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/view/widget/recommended_movies_List.dart';
-import 'package:movies_app/movies/movies_watchlist/watchlist_tap/watch_list.dart';
+import 'package:movies_app/movies/movies_watchlist/view/widgets/watch_list.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../movies_search/view/search_tab.dart';
