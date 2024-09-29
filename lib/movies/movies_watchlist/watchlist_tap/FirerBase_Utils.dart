@@ -1,41 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Movie.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class FirebaseUtils {
-
-  static CollectionReference<Movie> getMovieCollection() {
-    return FirebaseFirestore.instance
-        .collection(Movie.collectionName)
-        .withConverter<Movie>(
-      fromFirestore: (snapshot, options) => Movie.fromFireStore(snapshot.data()!),
-      toFirestore: (value, options) => value.toFireStore(),
-    );
+  static CollectionReference<MoviesMain> getWatchListCollection() {
+    final db = FirebaseFirestore.instance;
+    return db.collection('watchListMovies').withConverter(
+          fromFirestore: (snapshot, _) => MoviesMain.fromJson(snapshot.data()!),
+          toFirestore: (movie, options) => movie.toJson(),
+        );
   }
 
-
-  static Future<void> addMovieToFirebase(String id) {
-    var collection = getMovieCollection();
-    var docRef = collection.doc(id);
-    return docRef.set(Movie(id: id));
+  static Future<void> addMovieToWatchList(MoviesMain movie) async {
+    final collectionReference = getWatchListCollection();
+    final doc = collectionReference.doc(movie.id.toString());
+    return doc.set(movie);
   }
 
-
-  static Future<List<Movie>> getMovieFromFireBase() async {
-    List<Movie> movies = [];
-    QuerySnapshot<Movie> snapshot = await getMovieCollection().get();
-    movies = snapshot.docs.map((doc) => doc.data()).toList();
-    return movies;
+  static Future<void> deleteMovieFromWatchList(int movieId) {
+    final collectionReference = getWatchListCollection();
+    final doc = collectionReference.doc(movieId.toString());
+    return doc.delete();
   }
 
-
-  static Future<bool> isMovieBookmarked(String id) async {
-    var docSnapshot = await getMovieCollection().doc(id).get();
-    return docSnapshot.exists;
-  }
-
-
-  static Future<void> removeMovieFromFirebase(String id) {
-    var collection = getMovieCollection();
-    return collection.doc(id).delete();
+  static Future<List<MoviesMain>> getWatchListMovies() async {
+    final collectionReference = getWatchListCollection();
+    final querySnapshot = await collectionReference.get();
+    return querySnapshot.docs.map((doc) => doc.data()).toList();
   }
 }

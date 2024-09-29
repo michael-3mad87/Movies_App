@@ -13,22 +13,25 @@ class MoviesMain {
   bool? video;
   double? voteAverage;
   int? voteCount;
+  late bool isWatchList;
 
-  MoviesMain(
-      {this.adult,
-      this.backdropPath,
-      this.genreIds,
-      this.id,
-      this.originalLanguage,
-      this.originalTitle,
-      this.overview,
-      this.popularity,
-      this.posterPath,
-      this.releaseDate,
-      this.title,
-      this.video,
-      this.voteAverage,
-      this.voteCount});
+  MoviesMain({
+    this.adult,
+    this.backdropPath,
+    this.genreIds,
+    this.id,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+    this.isWatchList = false,
+  });
 
   MoviesMain.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
@@ -45,6 +48,8 @@ class MoviesMain {
     video = json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
+    isWatchList =
+        json['isWatchList'] ?? false; 
   }
 
   Map<String, dynamic> toJson() {
@@ -63,6 +68,7 @@ class MoviesMain {
     data['video'] = video;
     data['vote_average'] = voteAverage;
     data['vote_count'] = voteCount;
+    data['isWatchList'] = isWatchList; 
     return data;
   }
 }

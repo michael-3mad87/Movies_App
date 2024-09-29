@@ -100,12 +100,13 @@ class _MoviesDetailsState extends State<MoviesDetails> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          PosterWidget(
-                            image:
-                                '${ApiConstant.imageUrl}${viewModel.movieDetailsResponse?.posterPath}',
-                            height: 199,
-                            width: 129,
-                          ),
+                          // PosterWidget(
+                          //   image:
+                          //       '${ApiConstant.imageUrl}${viewModel.movieDetailsResponse?.posterPath}',
+                          //   height: 199,
+                          //   width: 129,
+                          //   movie: ,
+                          // ),
                           SizedBox(width: 11.w),
                           SizedBox(
                             width: 250.w,

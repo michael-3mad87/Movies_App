@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_browse/data/models/movies_browse.dart';
 import 'package:movies_app/movies/movies_browse/data/repository/movies_browse_repository.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/services_locator.dart';
 
 class MoviesBrowseViewModel extends ChangeNotifier {
@@ -10,7 +10,7 @@ class MoviesBrowseViewModel extends ChangeNotifier {
     getBrowseMovies(categoryId);
   }
   bool isLoading = false;
-  List<BrowseMovies> browseMovies = [];
+  List<MoviesMain> browseMovies = [];
   String? errorMessage;
   MoviesBrowseRepository repository;
 

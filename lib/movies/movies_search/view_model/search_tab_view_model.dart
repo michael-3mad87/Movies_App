@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
-import '../../movies_home/popular/data/models/movies.dart';
 import '../data/repository/search_tab_repository.dart';
 
 class SearchTabViewModel with ChangeNotifier {
   final repo = SearchTabRepository();
-  List<MoviesPopular> movies = [];
+  List<MoviesMain> movies = [];
 
   Future<void> changeMovies(String query) async {
     try {

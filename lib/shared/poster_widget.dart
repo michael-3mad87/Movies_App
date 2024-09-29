@@ -3,16 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:movies_app/shared/loading_state.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/save_button.dart';
 
 class PosterWidget extends StatelessWidget {
-  const PosterWidget(
-      {this.height = 170, super.key, this.width = 110, required this.image});
+  PosterWidget(
+      {this.height = 170,
+      super.key,
+      this.width = 110,
+      required this.image,
+      required this.movie});
 
   final String image;
   final int height;
   final int width;
-
+  MoviesMain movie;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -35,7 +40,7 @@ class PosterWidget extends StatelessWidget {
         Positioned(
           top: -8.h,
           left: -10.w,
-          child:  SavedButton(),
+          child: SavedButton(movie),
         ),
       ],
     );

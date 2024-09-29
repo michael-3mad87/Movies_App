@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_watchlist/watchlist_tap/Movie_Widget.dart';
+import 'package:movies_app/movies/movies_watchlist/watchlist_tap/WatchListViewModel.dart';
 import 'package:movies_app/shared/app_theme.dart';
-
+import 'package:movies_app/shared/moviesMain.dart';
+import 'package:provider/provider.dart';
 import '../movies/movies_watchlist/watchlist_tap/FirerBase_Utils.dart';
 
 class SavedButton extends StatefulWidget {
-   SavedButton({super.key});
-  MovieWidgetItem movie = MovieWidgetItem(id: '');
+  final MoviesMain movie;
+
+  SavedButton(this.movie, {super.key});
+
   @override
   State<SavedButton> createState() => _SavedButtonState();
 }
+
 class _SavedButtonState extends State<SavedButton> {
-  bool isClicked = false;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async{
-        isClicked = !isClicked;
-        setState(() {});
-        if (isClicked) {
-          await FirebaseUtils.addMovieToFirebase(widget.movie.id.toString());
+      onTap: () async {
+        widget.movie.isWatchList = !widget.movie.isWatchList;
+
+        if (widget.movie.isWatchList) {
+          await FirebaseUtils.addMovieToWatchList(widget.movie);
+          Provider.of<WatchListViewModel>(context).iswatchlist;
         } else {
-          await FirebaseUtils.removeMovieFromFirebase(widget.movie.id.toString());
+          await FirebaseUtils.deleteMovieFromWatchList(widget.movie.id!);
         }
+        await FirebaseUtils.getWatchListMovies();
+        setState(() {});
       },
       child: Stack(
+        alignment: AlignmentDirectional.center,
         children: [
-          Stack(
-            alignment: AlignmentDirectional.center,
-            children: [
-              Icon(
-                Icons.bookmark,
-                color: isClicked
-                    ? AppTheme.bookMarkColor
-                    : AppTheme.darkGrey.withOpacity(.75),
-                size: MediaQuery.of(context).size.width / 9,
-              ),
-              Icon(
-                isClicked ? Icons.check : Icons.add,
-                color: AppTheme.white,
-                size: MediaQuery.of(context).size.width / 17,
-              ),
-            ],
+          Icon(
+            Icons.bookmark,
+            color: widget.movie.isWatchList
+                ? AppTheme.bookMarkColor
+                : AppTheme.darkGrey.withOpacity(.75),
+            size: MediaQuery.of(context).size.width / 9,
+          ),
+          Icon(
+            widget.movie.isWatchList ? Icons.check : Icons.add,
+            color: AppTheme.white,
+            size: MediaQuery.of(context).size.width / 17,
           ),
         ],
       ),

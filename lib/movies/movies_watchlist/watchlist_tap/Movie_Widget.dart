@@ -1,47 +1,81 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'Movie.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/constant/functions.dart';
+import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
+import 'package:movies_app/shared/moviesMain.dart';
+import 'package:movies_app/constant/api_constant.dart';
+import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/poster_widget.dart';
 
-class MovieWidgetItem extends StatefulWidget {
-  String id;
-   MovieWidgetItem({super.key, required this.id});
+class MovieWidgetItem extends StatelessWidget {
+  final MoviesMain movie;
 
-  @override
-  State<MovieWidgetItem> createState() => _MovieWidgetItemState();
-}
+  MovieWidgetItem(this.movie, {super.key});
 
-class _MovieWidgetItemState extends State<MovieWidgetItem> {
   @override
   Widget build(BuildContext context) {
-    return
-      Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Container(
-                  width:
-                  MediaQuery.of(context).size.width * 0.5, // Adjusted width
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            bottom: 8.0), // Adjust the space as needed
-                        child: Text(
-                          widget.id ?? "",
-                          style: Theme.of(context).textTheme.titleLarge,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          MoviesDetails.routeName,
+          arguments: movie.id,
+        );
+      },
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              PosterWidget(
+                image: '${ApiConstant.imageUrl}${movie.backdropPath}',
+                movie: movie,
+                height: 90,
+                width: 140,
+              ),
+              const SizedBox(width: 10),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      movie.title ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            fontSize: 18.sp,
+                            color: AppTheme.white,
+                          ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      ConstantsFunction.formattingDate(movie.releaseDate ?? ''),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: AppTheme.white),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      movie.overview ?? "",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: AppTheme.textGenreColor,
+                            height: 1.5,
+                            fontSize: 15.sp,
+                          ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ],
-        ),
-      );
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
-import 'package:movies_app/movies/movies_browse/data/models/movies_browse.dart';
 import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
 class MoviesBrowseItem extends StatelessWidget {
   const MoviesBrowseItem(this.browseMovies, {super.key});
-  final BrowseMovies browseMovies;
+  final MoviesMain browseMovies;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +28,7 @@ class MoviesBrowseItem extends StatelessWidget {
               image: '${ApiConstant.imageUrl}${browseMovies.posterPath}',
               height: 180,
               width: 165,
+              movie: browseMovies,
             ),
             Container(
               decoration: const BoxDecoration(

@@ -4,15 +4,16 @@ import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/movies/movies_home/view/widgets/background_stack.dart';
-import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/shared/loading_state.dart';
+import 'package:movies_app/shared/moviesMain.dart';
+import 'package:movies_app/shared/poster_widget.dart';
 import 'package:movies_app/shared/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class SliderItem extends StatelessWidget {
   const SliderItem(this.slidableMovieModel, {super.key});
-  final MoviesPopular slidableMovieModel;
+  final MoviesMain slidableMovieModel;
   @override
   Widget build(BuildContext context) {
     String year =
@@ -59,7 +60,7 @@ class SliderItem extends StatelessWidget {
                     Positioned(
                       top: -8.h,
                       left: -10.w,
-                      child:  SavedButton(),
+                      child: SavedButton(slidableMovieModel),
                     ),
                   ],
                 ),
@@ -101,7 +102,6 @@ class SliderItem extends StatelessWidget {
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 14.sp),
                           ),
-                          
                         ],
                       ),
                     ],

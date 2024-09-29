@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/movies/movies_home/popular/data/repository/popular_repository.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/services_locator.dart';
 
 class PopularModelView extends ChangeNotifier {
   PopularRepository repository;
   bool isLoading = false;
-  List<MoviesPopular> popularMovies = [];
+  List<MoviesMain> popularMovies = [];
   String? errorMessage;
 
   PopularModelView()
