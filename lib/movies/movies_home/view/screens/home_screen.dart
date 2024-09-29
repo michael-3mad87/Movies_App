@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [
     const HomeContent(),
     const SearchTab(),
-    Categories_List(),
-    WatchListScreen(),
+    const Categories_List(),
+    const WatchListScreen(),
   ];
 
   int index = 0;
@@ -84,7 +84,7 @@ class HomeContent extends StatelessWidget {
         ),
         const ReleasesMovieList(),
         SizedBox(
-          height: 10.h,
+          height: 18.h,
         ),
         const RecommendedMoviesList(),
       ],

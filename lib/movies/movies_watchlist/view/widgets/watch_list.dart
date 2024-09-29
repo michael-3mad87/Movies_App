@@ -8,6 +8,8 @@ import 'package:movies_app/movies/movies_watchlist/view/widgets/Movie_Widget.dar
 import 'package:movies_app/shared/app_theme.dart';
 
 class WatchListScreen extends StatefulWidget {
+  const WatchListScreen({super.key});
+
   @override
   State<WatchListScreen> createState() => _WatchListScreenState();
 }

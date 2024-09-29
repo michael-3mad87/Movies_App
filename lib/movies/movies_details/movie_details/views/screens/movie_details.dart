@@ -119,7 +119,7 @@ class _MoviesDetailsState extends State<MoviesDetails> {
                                 children: [
                                   GridView.builder(
                                     shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics: const NeverScrollableScrollPhysics(),
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 3,
@@ -140,7 +140,7 @@ class _MoviesDetailsState extends State<MoviesDetails> {
                                       );
                                     },
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Text(

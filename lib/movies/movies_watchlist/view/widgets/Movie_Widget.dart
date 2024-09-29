@@ -10,7 +10,7 @@ import 'package:movies_app/shared/poster_widget.dart';
 class MovieWidgetItem extends StatelessWidget {
   final MoviesMain movie;
 
-  MovieWidgetItem(this.movie, {super.key});
+  const MovieWidgetItem(this.movie, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -43,7 +43,7 @@ class RecommendMovieItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star_outlined,
                       size: 14,
                       color: AppTheme.gold,
@@ -52,7 +52,7 @@ class RecommendMovieItem extends StatelessWidget {
                       width: 3,
                     ),
                     Text(
-                      '${recommendMovie.voteAverage!.toStringAsFixed(1)}',
+                      recommendMovie.voteAverage!.toStringAsFixed(1),
                       style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 10.sp,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErroImage extends StatelessWidget {
   ErroImage({required this.height, required this.width, super.key});

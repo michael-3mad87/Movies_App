@@ -26,7 +26,7 @@ class _SearchTabState extends State<SearchTab> {
               height: 50.h,
               child: TextFormField(
                 cursorColor: AppTheme.white,
-                style: TextStyle(color: AppTheme.white),
+                style: const TextStyle(color: AppTheme.white),
                 onChanged: (value) async {
                   Provider.of<SearchTabViewModel>(context, listen: false)
                       .changeMovies(value);
@@ -35,15 +35,15 @@ class _SearchTabState extends State<SearchTab> {
                 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide(color: AppTheme.white),
+                    borderSide: const BorderSide(color: AppTheme.white),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide(color: AppTheme.white),
+                    borderSide: const BorderSide(color: AppTheme.white),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide(color: AppTheme.white),
+                    borderSide: const BorderSide(color: AppTheme.white),
                   ),
                   prefixIcon: const Icon(
                     Icons.search,

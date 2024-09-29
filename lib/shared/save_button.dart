@@ -8,7 +8,7 @@ import 'package:movies_app/movies/movies_watchlist/view_model/WatchListViewModel
 class SavedButton extends StatefulWidget {
   final MoviesMain movie;
 
-  SavedButton(this.movie, {super.key});
+  const SavedButton(this.movie, {super.key});
 
   @override
   State<SavedButton> createState() => _SavedButtonState();

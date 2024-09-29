@@ -9,7 +9,7 @@ class categoriesResponse {
     if (json['genres'] != null) {
       genres = <categories>[];
       json['genres'].forEach((v) {
-        genres!.add(new categories.fromJson(v));
+        genres!.add(categories.fromJson(v));
       });
     }
   }

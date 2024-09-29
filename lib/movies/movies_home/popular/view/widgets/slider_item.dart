@@ -7,7 +7,6 @@ import 'package:movies_app/movies/movies_home/view/widgets/background_stack.dart
 import 'package:movies_app/shared/erro_Image.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/moviesMain.dart';
-import 'package:movies_app/shared/poster_widget.dart';
 import 'package:movies_app/shared/save_button.dart';
 import 'package:movies_app/shared/app_theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';

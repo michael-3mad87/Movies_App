@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/movies/movies_Categories/view/widget/category_Item.dart';
@@ -9,7 +8,7 @@ import 'package:movies_app/shared/loading_state.dart';
 import 'package:provider/provider.dart';
 
 class Categories_List extends StatelessWidget {
-  Categories_List({super.key});
+  const Categories_List({super.key});
 
   @override
   Widget build(BuildContext context) {

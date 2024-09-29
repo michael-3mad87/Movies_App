@@ -14,7 +14,7 @@ class MoviesBrowseResponse {
     if (json['results'] != null) {
       results = <MoviesMain>[];
       json['results'].forEach((v) {
-        results!.add(new MoviesMain.fromJson(v));
+        results!.add(MoviesMain.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

@@ -17,7 +17,7 @@ class RecommendedMoviesList extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             color: AppTheme.grey,
             height: 268.h,
             width: double.infinity,
