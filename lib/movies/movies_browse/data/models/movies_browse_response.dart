@@ -1,8 +1,8 @@
-import 'package:movies_app/movies/movies_browse/data/models/movies_browse.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class MoviesBrowseResponse {
   int? page;
-  List<BrowseMovies>? results;
+  List<MoviesMain>? results;
   int? totalPages;
   int? totalResults;
 
@@ -12,9 +12,9 @@ class MoviesBrowseResponse {
   MoviesBrowseResponse.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
-      results = <BrowseMovies>[];
+      results = <MoviesMain>[];
       json['results'].forEach((v) {
-        results!.add(new BrowseMovies.fromJson(v));
+        results!.add(new MoviesMain.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

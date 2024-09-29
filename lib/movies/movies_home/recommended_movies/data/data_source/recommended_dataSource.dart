@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommendedMovies_response.dart';
-import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class RecommendedAPIDataSource {
-  Future<List<RecommendedMovies>> getRecommendedMovies() async {
+  Future<List<MoviesMain>> getRecommendedMovies() async {
     final url = Uri.parse('https://${ApiConstant.baseUrl}/3/movie/top_rated');
     try {
       final response = await http.get(url, headers: {

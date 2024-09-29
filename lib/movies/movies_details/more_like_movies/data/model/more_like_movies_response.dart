@@ -1,8 +1,8 @@
-import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class MoreLikeMoviesResponse {
   int? page;
-  List<MoreLikeMovies>? results;
+  List<MoviesMain>? results;
   int? totalPages;
   int? totalResults;
 
@@ -12,9 +12,9 @@ class MoreLikeMoviesResponse {
   MoreLikeMoviesResponse.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
-      results = <MoreLikeMovies>[];
+      results = <MoviesMain>[];
       json['results'].forEach((v) {
-        results!.add(new MoreLikeMovies.fromJson(v));
+        results!.add(new MoviesMain.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

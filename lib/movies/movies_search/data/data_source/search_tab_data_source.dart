@@ -1,6 +1,6 @@
-import '../../../movies_home/popular/data/models/movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 abstract class SearchTabDataSource {
-  Future<List<MoviesPopular>> getSearchResult(String query,
+  Future<List<MoviesMain>> getSearchResult(String query,
       {String language = "language", int page = 1});
 }

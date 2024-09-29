@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies_response.dart';
-import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class MoreLikeMoviesAPIDataSource {
-  Future<List<MoreLikeMovies>> getMoreMovies(int movieId) async {
+  Future<List<MoviesMain>> getMoreMovies(int movieId) async {
     try {
       final url =
           Uri.parse('https://${ApiConstant.baseUrl}/3/movie/$movieId/similar');

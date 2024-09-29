@@ -3,13 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
-import 'package:movies_app/movies/movies_home/recommended_movies/data/model/recommended_movies.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
 class RecommendMovieItem extends StatelessWidget {
   const RecommendMovieItem(this.recommendMovie, {super.key});
-  final RecommendedMovies recommendMovie;
+  final MoviesMain recommendMovie;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +29,7 @@ class RecommendMovieItem extends StatelessWidget {
           PosterWidget(
             image: '${ApiConstant.imageUrl}${recommendMovie.posterPath}',
             height: 140,
+            movie: recommendMovie,
           ),
           Container(
             decoration: BoxDecoration(

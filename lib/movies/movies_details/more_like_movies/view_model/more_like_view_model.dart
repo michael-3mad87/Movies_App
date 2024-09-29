@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movies/movies_details/more_like_movies/data/data_source/more_like_data_source.dart';
-import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
 import 'package:movies_app/movies/movies_details/more_like_movies/data/repository/more_like_repository.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/services_locator.dart';
 
 class MoreLikeViewModel extends ChangeNotifier {
@@ -13,7 +12,7 @@ class MoreLikeViewModel extends ChangeNotifier {
   }
   int movieId;
   bool isLoading = false;
-  List<MoreLikeMovies> moreMovies = [];
+  List<MoviesMain> moreMovies = [];
   String? errorMessage;
   Future<void> getLikeMoreMovies() async {
     isLoading = true;

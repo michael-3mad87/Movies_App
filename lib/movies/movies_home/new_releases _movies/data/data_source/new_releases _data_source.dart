@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models/new_releases%20_movies_response.dart';
-import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models/new_releases_movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class NewReleasesAPIDataSource {
-  Future<List<NewReleasesMovie>> getNewReleasesMovies() async {
+  Future<List<MoviesMain>> getNewReleasesMovies() async {
     try {
       final uri = Uri.parse('https://${ApiConstant.baseUrl}/3/movie/upcoming');
       final response = await http.get(uri, headers: {

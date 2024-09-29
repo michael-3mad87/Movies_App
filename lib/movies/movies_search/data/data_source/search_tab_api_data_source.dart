@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/movies/movies_search/data/data_source/search_tab_data_source.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 import '../model/search_result.dart';
-import '../../../movies_home/popular/data/models/movies.dart';
 
 class SearchTabAPIDataSource extends SearchTabDataSource {
   @override
-  Future<List<MoviesPopular>> getSearchResult(String query,
+  Future<List<MoviesMain>> getSearchResult(String query,
       {String language = "language", int page = 1}) async {
     final uri = Uri.https("api.themoviedb.org", "3/search/movie", {
       "query": query,

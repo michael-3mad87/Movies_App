@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/constant/api_constant.dart';
-import 'package:movies_app/movies/movies_home/popular/data/models/movies.dart';
 import 'package:movies_app/movies/movies_home/popular/data/models/popular_movies_response.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class PopularMoviesAPIDataSource {
-  Future<List<MoviesPopular>> getPopularMovies() async {
+  Future<List<MoviesMain>> getPopularMovies() async {
     try {
       final uri = Uri.parse(
           'https://${ApiConstant.baseUrl}/3/movie/popular?language=en-US&page=1');

@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
-import 'package:movies_app/movies/movies_browse/data/models/movies_browse.dart';
 import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
 class MoviesBrowseItem extends StatelessWidget {
   const MoviesBrowseItem(this.browseMovies, {super.key});
-  final BrowseMovies browseMovies;
+  final MoviesMain browseMovies;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          MoviesDetails.routeName,
-          arguments: browseMovies.id,
-        );
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          PosterWidget(
-            image: '${ApiConstant.imageUrl}${browseMovies.posterPath}',
-            height: 180,
-            width: 165,
-          ),
-          Expanded(
-            child: Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            MoviesDetails.routeName,
+            arguments: browseMovies.id,
+          );
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PosterWidget(
+              image: '${ApiConstant.imageUrl}${browseMovies.posterPath}',
+              height: 180,
+              width: 165,
+              movie: browseMovies,
+            ),
+            Container(
               decoration: const BoxDecoration(
                   color: AppTheme.movieListColor,
                   borderRadius: BorderRadius.only(
@@ -45,6 +47,7 @@ class MoviesBrowseItem extends StatelessWidget {
                     style: TextStyle(
                         color: AppTheme.white,
                         fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
                         overflow: TextOverflow.ellipsis),
                   ),
                   const SizedBox(
@@ -52,6 +55,7 @@ class MoviesBrowseItem extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Icon(
                         Icons.star_outlined,
@@ -72,9 +76,9 @@ class MoviesBrowseItem extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

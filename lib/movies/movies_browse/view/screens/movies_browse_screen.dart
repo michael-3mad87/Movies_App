@@ -30,18 +30,15 @@ class MoviesBrowseScreen extends StatelessWidget {
               } else if (viewModel.errorMessage != null) {
                 return const ErrorState();
               } else {
-                return Expanded(
-                  child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.9,
-                      mainAxisSpacing: 24,
-                      
-                    ),
-                    itemBuilder: (context, index) =>
-                        MoviesBrowseItem(viewModel.browseMovies[index]),
-                    itemCount: viewModel.browseMovies.length,
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.9,
+                    mainAxisSpacing: 24,
                   ),
+                  itemBuilder: (context, index) =>
+                      MoviesBrowseItem(viewModel.browseMovies[index]),
+                  itemCount: viewModel.browseMovies.length,
                 );
               }
             },

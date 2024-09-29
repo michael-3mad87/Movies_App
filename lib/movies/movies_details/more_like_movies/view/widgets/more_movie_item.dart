@@ -3,17 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/movies/movies_details/movie_details/views/screens/movie_details.dart';
-import 'package:movies_app/movies/movies_details/more_like_movies/data/model/more_like_movies.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/poster_widget.dart';
 
 class MoreLikeMovieItem extends StatelessWidget {
   const MoreLikeMovieItem(this.movies, {super.key});
 
-  final MoreLikeMovies movies;
+  final MoviesMain movies;
   @override
   Widget build(BuildContext context) {
-   
     return InkWell(
       onTap: () {
         Navigator.pushReplacementNamed(
@@ -28,6 +27,7 @@ class MoreLikeMovieItem extends StatelessWidget {
           PosterWidget(
             image: '${ApiConstant.imageUrl}${movies.posterPath}',
             height: 140,
+            movie: movies,
           ),
           Container(
             decoration: BoxDecoration(

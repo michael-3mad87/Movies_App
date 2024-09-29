@@ -1,8 +1,8 @@
-import 'package:movies_app/movies/movies_home/new_releases%20_movies/data/models/new_releases_movies.dart';
+import 'package:movies_app/shared/moviesMain.dart';
 
 class NewReleasesMoviesResponse {
   int? page;
-  List<NewReleasesMovie>? results;
+  List<MoviesMain>? results;
   int? totalPages;
   int? totalResults;
 
@@ -12,9 +12,9 @@ class NewReleasesMoviesResponse {
   NewReleasesMoviesResponse.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
-      results = <NewReleasesMovie>[];
+      results = <MoviesMain>[];
       json['results'].forEach((v) {
-        results!.add(NewReleasesMovie.fromJson(v));
+        results!.add(MoviesMain.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
