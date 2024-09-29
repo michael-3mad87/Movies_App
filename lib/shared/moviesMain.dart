@@ -1,3 +1,5 @@
+import 'package:movies_app/movies/movies_details/movie_details/data/model/movie_details_response/movie_details_response.dart';
+
 class MoviesMain {
   bool? adult;
   String? backdropPath;
@@ -33,6 +35,30 @@ class MoviesMain {
     this.isWatchList = false,
   });
 
+  factory MoviesMain.fromMovieDetailsResponse(MovieDetailsResponse response) {
+    return MoviesMain(
+      adult: response.adult,
+      backdropPath: response.backdropPath,
+      id: response.id,
+      originalLanguage: response.originalLanguage,
+      originalTitle: response.originalTitle,
+      overview: response.overview,
+      popularity: response.popularity,
+      posterPath: response.posterPath,
+      releaseDate: response.releaseDate,
+      title: response.title,
+      video: response.video,
+      voteAverage: response.voteAverage,
+      voteCount: response.voteCount,
+      genreIds: response.genres
+              ?.where((genre) => genre.id != null)
+              .map((genre) => genre.id!)
+              .toList() ??
+          [],
+      isWatchList: false,
+    );
+  }
+
   MoviesMain.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
@@ -48,8 +74,7 @@ class MoviesMain {
     video = json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
-    isWatchList =
-        json['isWatchList'] ?? false; 
+    isWatchList = json['isWatchList'] ?? false;
   }
 
   Map<String, dynamic> toJson() {
@@ -68,7 +93,7 @@ class MoviesMain {
     data['video'] = video;
     data['vote_average'] = voteAverage;
     data['vote_count'] = voteCount;
-    data['isWatchList'] = isWatchList; 
+    data['isWatchList'] = isWatchList;
     return data;
   }
 }
