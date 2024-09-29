@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/erro_Image.dart';
 import 'package:movies_app/shared/loading_state.dart';
 import 'package:movies_app/shared/moviesMain.dart';
 import 'package:movies_app/shared/save_button.dart';
@@ -15,8 +15,8 @@ class PosterWidget extends StatelessWidget {
       required this.movie});
 
   final String image;
-  final int height;
-  final int width;
+  final double height;
+  final double width;
   MoviesMain movie;
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,9 @@ class PosterWidget extends StatelessWidget {
             height: height.h,
             fit: BoxFit.cover,
             placeholder: (context, url) => const LoadingState(),
-            errorWidget: (context, url, error) => const Icon(
-              Icons.error,
-              color: AppTheme.white,
-              size: 16,
+            errorWidget: (context, url, error) => ErroImage(
+              height: height,
+              width: width,
             ),
           ),
         ),

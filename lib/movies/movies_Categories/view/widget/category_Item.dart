@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/movies/movies_Categories/data/model/categories.dart';
 import 'package:movies_app/movies/movies_browse/view/screens/movies_browse_screen.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/erro_Image.dart';
 import 'package:movies_app/shared/loading_state.dart';
 
 class Category_Item extends StatelessWidget {
@@ -65,10 +66,9 @@ class Category_Item extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               placeholder: (context, url) => const LoadingState(),
-              errorWidget: (context, url, error) => const Icon(
-                Icons.error,
-                color: AppTheme.white,
-                size: 16,
+              errorWidget: (context, url, error) => ErroImage(
+                width: double.infinity,
+                height: double.infinity,
               ),
             ),
             Container(

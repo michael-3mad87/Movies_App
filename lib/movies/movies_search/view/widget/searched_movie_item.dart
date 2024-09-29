@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/constant/api_constant.dart';
 import 'package:movies_app/constant/functions.dart';
 import 'package:movies_app/shared/app_theme.dart';
+import 'package:movies_app/shared/erro_Image.dart';
 import 'package:movies_app/shared/moviesMain.dart';
 import '../../../../shared/loading_state.dart';
 import '../../../movies_details/movie_details/views/screens/movie_details.dart';
@@ -34,10 +35,9 @@ class SearchedMovieItem extends StatelessWidget {
                   imageUrl: '${ApiConstant.imageUrl}${movie.backdropPath}',
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       const LoadingState(),
-                  errorWidget: (context, url, error) => const Icon(
-                    Icons.error,
-                    size: 32,
-                    color: AppTheme.white,
+                  errorWidget: (context, url, error) => ErroImage(
+                    height: 90.h,
+                    width: 140.w,
                   ),
                   height: 90.h,
                   width: 140.w,
